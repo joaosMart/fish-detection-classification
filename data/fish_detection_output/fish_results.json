@@ -1,0 +1,2224 @@
+{
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_12-17-01.mp4": {
+    "total_frames": 378,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-16-21.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-53-19.mp4": {
+    "total_frames": 127,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-08-31.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-21-11.mp4": {
+    "total_frames": 127,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-22-54.mp4": {
+    "total_frames": 120,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-03-12.mp4": {
+    "total_frames": 122,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-10-55.mp4": {
+    "total_frames": 236,
+    "fish_frames": [
+      {
+        "frame": 99,
+        "probability": 0.9851576089859009
+      },
+      {
+        "frame": 100,
+        "probability": 0.9993487000465393
+      },
+      {
+        "frame": 101,
+        "probability": 0.9998074173927307
+      },
+      {
+        "frame": 102,
+        "probability": 0.9999125003814697
+      },
+      {
+        "frame": 103,
+        "probability": 0.9999151229858398
+      },
+      {
+        "frame": 105,
+        "probability": 0.9984269142150879
+      },
+      {
+        "frame": 106,
+        "probability": 0.9999233484268188
+      },
+      {
+        "frame": 109,
+        "probability": 0.9997817873954773
+      },
+      {
+        "frame": 110,
+        "probability": 0.9993435740470886
+      },
+      {
+        "frame": 111,
+        "probability": 0.9977481961250305
+      },
+      {
+        "frame": 112,
+        "probability": 0.9972423315048218
+      },
+      {
+        "frame": 113,
+        "probability": 0.998364269733429
+      },
+      {
+        "frame": 114,
+        "probability": 0.9950370192527771
+      },
+      {
+        "frame": 115,
+        "probability": 0.9978594183921814
+      },
+      {
+        "frame": 116,
+        "probability": 0.9976859092712402
+      },
+      {
+        "frame": 117,
+        "probability": 0.9913222789764404
+      },
+      {
+        "frame": 121,
+        "probability": 0.9987257122993469
+      },
+      {
+        "frame": 122,
+        "probability": 0.9997438788414001
+      },
+      {
+        "frame": 123,
+        "probability": 0.9923043847084045
+      },
+      {
+        "frame": 124,
+        "probability": 0.9864678382873535
+      },
+      {
+        "frame": 125,
+        "probability": 0.9999395608901978
+      },
+      {
+        "frame": 126,
+        "probability": 0.9999878406524658
+      },
+      {
+        "frame": 127,
+        "probability": 0.9999885559082031
+      },
+      {
+        "frame": 128,
+        "probability": 0.999991774559021
+      },
+      {
+        "frame": 129,
+        "probability": 0.9999957084655762
+      },
+      {
+        "frame": 130,
+        "probability": 0.9985895752906799
+      },
+      {
+        "frame": 131,
+        "probability": 0.9999287128448486
+      },
+      {
+        "frame": 132,
+        "probability": 0.9999983310699463
+      },
+      {
+        "frame": 133,
+        "probability": 0.9999798536300659
+      },
+      {
+        "frame": 134,
+        "probability": 0.9993952512741089
+      },
+      {
+        "frame": 135,
+        "probability": 0.9998427629470825
+      },
+      {
+        "frame": 136,
+        "probability": 0.9995216131210327
+      },
+      {
+        "frame": 137,
+        "probability": 0.999922513961792
+      },
+      {
+        "frame": 138,
+        "probability": 0.9999068975448608
+      },
+      {
+        "frame": 139,
+        "probability": 0.999891996383667
+      },
+      {
+        "frame": 140,
+        "probability": 0.9999316930770874
+      },
+      {
+        "frame": 141,
+        "probability": 0.9999508857727051
+      },
+      {
+        "frame": 142,
+        "probability": 0.9906237721443176
+      },
+      {
+        "frame": 145,
+        "probability": 0.9887554049491882
+      },
+      {
+        "frame": 146,
+        "probability": 0.9989350438117981
+      },
+      {
+        "frame": 147,
+        "probability": 0.9829546809196472
+      },
+      {
+        "frame": 149,
+        "probability": 0.9999939203262329
+      },
+      {
+        "frame": 150,
+        "probability": 0.9999923706054688
+      },
+      {
+        "frame": 151,
+        "probability": 0.9999990463256836
+      },
+      {
+        "frame": 152,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 153,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 154,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 155,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 156,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 157,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 158,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 159,
+        "probability": 0.9999997615814209
+      },
+      {
+        "frame": 160,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 161,
+        "probability": 0.9999997615814209
+      },
+      {
+        "frame": 162,
+        "probability": 0.9999997615814209
+      },
+      {
+        "frame": 163,
+        "probability": 0.9999994039535522
+      },
+      {
+        "frame": 164,
+        "probability": 0.9999997615814209
+      },
+      {
+        "frame": 165,
+        "probability": 0.9999994039535522
+      },
+      {
+        "frame": 166,
+        "probability": 0.9999984502792358
+      },
+      {
+        "frame": 167,
+        "probability": 0.9999972581863403
+      },
+      {
+        "frame": 168,
+        "probability": 0.9999994039535522
+      },
+      {
+        "frame": 169,
+        "probability": 0.9999991655349731
+      },
+      {
+        "frame": 170,
+        "probability": 1.0
+      },
+      {
+        "frame": 171,
+        "probability": 1.0
+      },
+      {
+        "frame": 172,
+        "probability": 1.0
+      },
+      {
+        "frame": 173,
+        "probability": 1.0
+      },
+      {
+        "frame": 174,
+        "probability": 1.0
+      },
+      {
+        "frame": 175,
+        "probability": 1.0
+      },
+      {
+        "frame": 176,
+        "probability": 1.0
+      },
+      {
+        "frame": 177,
+        "probability": 1.0
+      },
+      {
+        "frame": 178,
+        "probability": 1.0
+      },
+      {
+        "frame": 179,
+        "probability": 1.0
+      },
+      {
+        "frame": 180,
+        "probability": 1.0
+      },
+      {
+        "frame": 181,
+        "probability": 1.0
+      },
+      {
+        "frame": 182,
+        "probability": 1.0
+      },
+      {
+        "frame": 183,
+        "probability": 1.0
+      },
+      {
+        "frame": 184,
+        "probability": 1.0
+      },
+      {
+        "frame": 185,
+        "probability": 1.0
+      },
+      {
+        "frame": 186,
+        "probability": 1.0
+      },
+      {
+        "frame": 187,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 188,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 189,
+        "probability": 0.9999997615814209
+      },
+      {
+        "frame": 190,
+        "probability": 0.9999942779541016
+      },
+      {
+        "frame": 191,
+        "probability": 0.9999581575393677
+      },
+      {
+        "frame": 193,
+        "probability": 0.999555766582489
+      },
+      {
+        "frame": 194,
+        "probability": 0.9974090456962585
+      }
+    ]
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_11-05-27.mp4": {
+    "total_frames": 138,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-48-49.mp4": {
+    "total_frames": 89,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_08-07-22.mp4": {
+    "total_frames": 383,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_12-30-26.mp4": {
+    "total_frames": 121,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_03-43-38.mp4": {
+    "total_frames": 176,
+    "fish_frames": [
+      {
+        "frame": 80,
+        "probability": 0.9997730851173401
+      },
+      {
+        "frame": 81,
+        "probability": 0.9999206066131592
+      },
+      {
+        "frame": 82,
+        "probability": 0.9999442100524902
+      },
+      {
+        "frame": 83,
+        "probability": 0.9993201494216919
+      },
+      {
+        "frame": 84,
+        "probability": 0.9966885447502136
+      },
+      {
+        "frame": 85,
+        "probability": 0.9919691681861877
+      },
+      {
+        "frame": 86,
+        "probability": 0.9959139227867126
+      },
+      {
+        "frame": 87,
+        "probability": 0.9994252920150757
+      },
+      {
+        "frame": 88,
+        "probability": 0.9985702037811279
+      },
+      {
+        "frame": 101,
+        "probability": 0.9962051510810852
+      },
+      {
+        "frame": 102,
+        "probability": 0.9996659755706787
+      },
+      {
+        "frame": 103,
+        "probability": 0.9997346997261047
+      },
+      {
+        "frame": 104,
+        "probability": 0.9998427629470825
+      },
+      {
+        "frame": 105,
+        "probability": 0.9999880790710449
+      },
+      {
+        "frame": 106,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 107,
+        "probability": 0.9999963045120239
+      },
+      {
+        "frame": 108,
+        "probability": 0.9999988079071045
+      },
+      {
+        "frame": 109,
+        "probability": 0.9999992847442627
+      },
+      {
+        "frame": 110,
+        "probability": 0.9999986886978149
+      },
+      {
+        "frame": 111,
+        "probability": 0.999998927116394
+      },
+      {
+        "frame": 112,
+        "probability": 0.9999997615814209
+      },
+      {
+        "frame": 113,
+        "probability": 0.9999991655349731
+      },
+      {
+        "frame": 114,
+        "probability": 0.9999996423721313
+      },
+      {
+        "frame": 115,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 116,
+        "probability": 0.9999998807907104
+      },
+      {
+        "frame": 117,
+        "probability": 0.9999995231628418
+      },
+      {
+        "frame": 118,
+        "probability": 0.9999995231628418
+      },
+      {
+        "frame": 119,
+        "probability": 0.9999990463256836
+      },
+      {
+        "frame": 120,
+        "probability": 0.9999980926513672
+      },
+      {
+        "frame": 121,
+        "probability": 0.999993085861206
+      },
+      {
+        "frame": 122,
+        "probability": 0.9999911785125732
+      },
+      {
+        "frame": 123,
+        "probability": 0.9999979734420776
+      },
+      {
+        "frame": 124,
+        "probability": 0.9999974966049194
+      },
+      {
+        "frame": 125,
+        "probability": 0.9999816417694092
+      },
+      {
+        "frame": 126,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 127,
+        "probability": 0.9999967813491821
+      },
+      {
+        "frame": 128,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 129,
+        "probability": 0.9999938011169434
+      },
+      {
+        "frame": 130,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 131,
+        "probability": 0.9999794960021973
+      },
+      {
+        "frame": 132,
+        "probability": 0.9999754428863525
+      },
+      {
+        "frame": 133,
+        "probability": 0.999595582485199
+      },
+      {
+        "frame": 134,
+        "probability": 0.9999076128005981
+      },
+      {
+        "frame": 135,
+        "probability": 0.9997851252555847
+      },
+      {
+        "frame": 136,
+        "probability": 0.9999568462371826
+      },
+      {
+        "frame": 137,
+        "probability": 0.9998915195465088
+      },
+      {
+        "frame": 138,
+        "probability": 0.9998639822006226
+      },
+      {
+        "frame": 139,
+        "probability": 0.9999816417694092
+      },
+      {
+        "frame": 140,
+        "probability": 0.9996359348297119
+      },
+      {
+        "frame": 141,
+        "probability": 0.9998980760574341
+      },
+      {
+        "frame": 142,
+        "probability": 0.9999740123748779
+      },
+      {
+        "frame": 143,
+        "probability": 0.9999788999557495
+      },
+      {
+        "frame": 144,
+        "probability": 0.9997803568840027
+      },
+      {
+        "frame": 145,
+        "probability": 0.9949983358383179
+      },
+      {
+        "frame": 146,
+        "probability": 0.9997958540916443
+      },
+      {
+        "frame": 147,
+        "probability": 0.9997574687004089
+      }
+    ]
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-32-40.mp4": {
+    "total_frames": 121,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-15-29.mp4": {
+    "total_frames": 144,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-28-25.mp4": {
+    "total_frames": 378,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_22-27-25.mp4": {
+    "total_frames": 134,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-23-54.mp4": {
+    "total_frames": 119,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-51-33.mp4": {
+    "total_frames": 143,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_23-55-00.mp4": {
+    "total_frames": 126,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_12-51-09.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-10-32.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-48-17.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-58-27.mp4": {
+    "total_frames": 120,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-19-03.mp4": {
+    "total_frames": 126,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-28-18.mp4": {
+    "total_frames": 124,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-44-36.mp4": {
+    "total_frames": 121,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_06-53-21.mp4": {
+    "total_frames": 391,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_07-36-21.mp4": {
+    "total_frames": 391,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_08-53-00.mp4": {
+    "total_frames": 136,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-05-28.mp4": {
+    "total_frames": 120,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-32-51.mp4": {
+    "total_frames": 108,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-15-39.mp4": {
+    "total_frames": 79,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-48-29.mp4": {
+    "total_frames": 150,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_19-28-47.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-05-15.mp4": {
+    "total_frames": 127,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-32-43.mp4": {
+    "total_frames": 127,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_20-06-52.mp4": {
+    "total_frames": 120,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-13-34.mp4": {
+    "total_frames": 127,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-58-15.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_22-43-31.mp4": {
+    "total_frames": 119,
+    "fish_frames": [
+      {
+        "frame": 97,
+        "probability": 0.9814534187316895
+      },
+      {
+        "frame": 98,
+        "probability": 0.9996800422668457
+      },
+      {
+        "frame": 99,
+        "probability": 0.9973061084747314
+      },
+      {
+        "frame": 100,
+        "probability": 0.9997468590736389
+      },
+      {
+        "frame": 101,
+        "probability": 0.9996017813682556
+      },
+      {
+        "frame": 102,
+        "probability": 0.984752357006073
+      },
+      {
+        "frame": 104,
+        "probability": 0.9982247948646545
+      },
+      {
+        "frame": 105,
+        "probability": 0.9985505938529968
+      },
+      {
+        "frame": 106,
+        "probability": 0.9992266893386841
+      },
+      {
+        "frame": 107,
+        "probability": 0.9894702434539795
+      },
+      {
+        "frame": 108,
+        "probability": 0.999555766582489
+      },
+      {
+        "frame": 109,
+        "probability": 0.9933071732521057
+      },
+      {
+        "frame": 112,
+        "probability": 0.9987157583236694
+      },
+      {
+        "frame": 118,
+        "probability": 0.9932025074958801
+      }
+    ]
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-39-39.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-14-48.mp4": {
+    "total_frames": 129,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-33-22.mp4": {
+    "total_frames": 123,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-59-01.mp4": {
+    "total_frames": 123,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-33-37.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-44-06.mp4": {
+    "total_frames": 131,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_07-07-27.mp4": {
+    "total_frames": 385,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_12-41-01.mp4": {
+    "total_frames": 126,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_01-45-29.mp4": {
+    "total_frames": 382,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-52-36.mp4": {
+    "total_frames": 121,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_11-49-44.mp4": {
+    "total_frames": 101,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_22-36-47.mp4": {
+    "total_frames": 167,
+    "fish_frames": [
+      {
+        "frame": 99,
+        "probability": 0.9984869956970215
+      },
+      {
+        "frame": 100,
+        "probability": 0.9927951693534851
+      },
+      {
+        "frame": 101,
+        "probability": 0.9994428753852844
+      },
+      {
+        "frame": 102,
+        "probability": 0.9999524354934692
+      },
+      {
+        "frame": 103,
+        "probability": 0.9999384880065918
+      },
+      {
+        "frame": 104,
+        "probability": 0.9999889135360718
+      },
+      {
+        "frame": 105,
+        "probability": 0.9999774694442749
+      },
+      {
+        "frame": 106,
+        "probability": 0.9999864101409912
+      },
+      {
+        "frame": 107,
+        "probability": 0.9999945163726807
+      },
+      {
+        "frame": 108,
+        "probability": 0.9999959468841553
+      },
+      {
+        "frame": 109,
+        "probability": 0.9999876022338867
+      },
+      {
+        "frame": 110,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 111,
+        "probability": 0.9999978542327881
+      },
+      {
+        "frame": 112,
+        "probability": 0.9999936819076538
+      },
+      {
+        "frame": 113,
+        "probability": 0.9999792575836182
+      },
+      {
+        "frame": 114,
+        "probability": 0.999958872795105
+      },
+      {
+        "frame": 116,
+        "probability": 0.9999194145202637
+      },
+      {
+        "frame": 117,
+        "probability": 0.9999898672103882
+      },
+      {
+        "frame": 118,
+        "probability": 0.9999792575836182
+      },
+      {
+        "frame": 119,
+        "probability": 0.9999969005584717
+      },
+      {
+        "frame": 120,
+        "probability": 0.9999921321868896
+      },
+      {
+        "frame": 121,
+        "probability": 0.9999988079071045
+      },
+      {
+        "frame": 122,
+        "probability": 0.9999984502792358
+      },
+      {
+        "frame": 123,
+        "probability": 0.9999986886978149
+      },
+      {
+        "frame": 124,
+        "probability": 0.9999891519546509
+      },
+      {
+        "frame": 125,
+        "probability": 0.999984622001648
+      },
+      {
+        "frame": 126,
+        "probability": 0.9999934434890747
+      },
+      {
+        "frame": 127,
+        "probability": 0.9999946355819702
+      },
+      {
+        "frame": 128,
+        "probability": 0.9999819993972778
+      },
+      {
+        "frame": 129,
+        "probability": 0.99997878074646
+      },
+      {
+        "frame": 130,
+        "probability": 0.9999568462371826
+      },
+      {
+        "frame": 131,
+        "probability": 0.9999544620513916
+      },
+      {
+        "frame": 132,
+        "probability": 0.9998984336853027
+      },
+      {
+        "frame": 134,
+        "probability": 0.9963924288749695
+      }
+    ]
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-24-46.mp4": {
+    "total_frames": 124,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-05-36.mp4": {
+    "total_frames": 144,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-48-35.mp4": {
+    "total_frames": 29,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_13-41-48.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_22-44-15.mp4": {
+    "total_frames": 353,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-03-56.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_19-32-59.mp4": {
+    "total_frames": 131,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_22-43-53.mp4": {
+    "total_frames": 246,
+    "fish_frames": [
+      {
+        "frame": 0,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 1,
+        "probability": 0.9999799728393555
+      },
+      {
+        "frame": 2,
+        "probability": 0.9999505281448364
+      },
+      {
+        "frame": 3,
+        "probability": 0.9999662637710571
+      },
+      {
+        "frame": 4,
+        "probability": 0.9999245405197144
+      },
+      {
+        "frame": 5,
+        "probability": 0.9999046325683594
+      },
+      {
+        "frame": 6,
+        "probability": 0.9999873638153076
+      },
+      {
+        "frame": 7,
+        "probability": 0.9995469450950623
+      },
+      {
+        "frame": 8,
+        "probability": 0.9936116337776184
+      },
+      {
+        "frame": 9,
+        "probability": 0.9995986819267273
+      },
+      {
+        "frame": 10,
+        "probability": 0.996249258518219
+      },
+      {
+        "frame": 11,
+        "probability": 0.9967142343521118
+      },
+      {
+        "frame": 12,
+        "probability": 0.9992327690124512
+      },
+      {
+        "frame": 13,
+        "probability": 0.9994966983795166
+      },
+      {
+        "frame": 18,
+        "probability": 0.9967523813247681
+      },
+      {
+        "frame": 19,
+        "probability": 0.9980429410934448
+      },
+      {
+        "frame": 20,
+        "probability": 0.9988840222358704
+      },
+      {
+        "frame": 21,
+        "probability": 0.9998252987861633
+      },
+      {
+        "frame": 23,
+        "probability": 0.9984869956970215
+      },
+      {
+        "frame": 25,
+        "probability": 0.998848557472229
+      },
+      {
+        "frame": 26,
+        "probability": 0.9949001669883728
+      },
+      {
+        "frame": 27,
+        "probability": 0.9971327781677246
+      },
+      {
+        "frame": 28,
+        "probability": 0.9990781545639038
+      },
+      {
+        "frame": 30,
+        "probability": 0.9997774958610535
+      },
+      {
+        "frame": 31,
+        "probability": 0.999376118183136
+      },
+      {
+        "frame": 32,
+        "probability": 0.9993663430213928
+      },
+      {
+        "frame": 33,
+        "probability": 0.9991573095321655
+      },
+      {
+        "frame": 34,
+        "probability": 0.9994683861732483
+      },
+      {
+        "frame": 35,
+        "probability": 0.9993588328361511
+      },
+      {
+        "frame": 36,
+        "probability": 0.9993880987167358
+      },
+      {
+        "frame": 37,
+        "probability": 0.9999527931213379
+      },
+      {
+        "frame": 38,
+        "probability": 0.9969005584716797
+      },
+      {
+        "frame": 39,
+        "probability": 0.9999854564666748
+      },
+      {
+        "frame": 40,
+        "probability": 0.999906063079834
+      },
+      {
+        "frame": 41,
+        "probability": 0.9999352693557739
+      },
+      {
+        "frame": 42,
+        "probability": 0.9997974038124084
+      },
+      {
+        "frame": 43,
+        "probability": 0.9999711513519287
+      },
+      {
+        "frame": 44,
+        "probability": 0.9996849298477173
+      },
+      {
+        "frame": 45,
+        "probability": 0.9999719858169556
+      },
+      {
+        "frame": 46,
+        "probability": 0.9999749660491943
+      },
+      {
+        "frame": 47,
+        "probability": 0.9999121427536011
+      },
+      {
+        "frame": 48,
+        "probability": 0.9990149736404419
+      },
+      {
+        "frame": 49,
+        "probability": 0.9996775388717651
+      },
+      {
+        "frame": 50,
+        "probability": 0.9997377991676331
+      },
+      {
+        "frame": 51,
+        "probability": 0.9997867941856384
+      },
+      {
+        "frame": 52,
+        "probability": 0.9991832375526428
+      },
+      {
+        "frame": 53,
+        "probability": 0.9999346733093262
+      },
+      {
+        "frame": 54,
+        "probability": 0.9997918009757996
+      },
+      {
+        "frame": 55,
+        "probability": 0.9995923638343811
+      },
+      {
+        "frame": 56,
+        "probability": 0.9998260140419006
+      },
+      {
+        "frame": 57,
+        "probability": 0.9998595714569092
+      },
+      {
+        "frame": 58,
+        "probability": 0.9920002222061157
+      },
+      {
+        "frame": 59,
+        "probability": 0.9996169805526733
+      },
+      {
+        "frame": 60,
+        "probability": 0.9999101161956787
+      },
+      {
+        "frame": 61,
+        "probability": 0.9996837377548218
+      },
+      {
+        "frame": 62,
+        "probability": 0.9999337196350098
+      },
+      {
+        "frame": 63,
+        "probability": 0.9999490976333618
+      },
+      {
+        "frame": 64,
+        "probability": 0.9998998641967773
+      },
+      {
+        "frame": 65,
+        "probability": 0.999995231628418
+      },
+      {
+        "frame": 66,
+        "probability": 0.9999954700469971
+      },
+      {
+        "frame": 67,
+        "probability": 0.9999934434890747
+      },
+      {
+        "frame": 68,
+        "probability": 0.9999971389770508
+      },
+      {
+        "frame": 69,
+        "probability": 0.9999990463256836
+      },
+      {
+        "frame": 70,
+        "probability": 0.9999973773956299
+      },
+      {
+        "frame": 71,
+        "probability": 0.9999978542327881
+      },
+      {
+        "frame": 72,
+        "probability": 0.9999955892562866
+      },
+      {
+        "frame": 73,
+        "probability": 0.9999921321868896
+      },
+      {
+        "frame": 74,
+        "probability": 0.9999961853027344
+      },
+      {
+        "frame": 75,
+        "probability": 0.9999960660934448
+      },
+      {
+        "frame": 76,
+        "probability": 0.9999793767929077
+      },
+      {
+        "frame": 77,
+        "probability": 0.9999744892120361
+      },
+      {
+        "frame": 78,
+        "probability": 0.9999802112579346
+      },
+      {
+        "frame": 79,
+        "probability": 0.9999818801879883
+      },
+      {
+        "frame": 80,
+        "probability": 0.9999918937683105
+      },
+      {
+        "frame": 81,
+        "probability": 0.9999946355819702
+      },
+      {
+        "frame": 82,
+        "probability": 0.9999876022338867
+      },
+      {
+        "frame": 83,
+        "probability": 0.9999953508377075
+      },
+      {
+        "frame": 84,
+        "probability": 0.9999847412109375
+      },
+      {
+        "frame": 85,
+        "probability": 0.9999845027923584
+      },
+      {
+        "frame": 86,
+        "probability": 0.9999878406524658
+      },
+      {
+        "frame": 87,
+        "probability": 0.9999921321868896
+      },
+      {
+        "frame": 88,
+        "probability": 0.9999749660491943
+      },
+      {
+        "frame": 89,
+        "probability": 0.9999632835388184
+      },
+      {
+        "frame": 90,
+        "probability": 0.9999473094940186
+      },
+      {
+        "frame": 91,
+        "probability": 0.999891996383667
+      },
+      {
+        "frame": 92,
+        "probability": 0.9999527931213379
+      },
+      {
+        "frame": 93,
+        "probability": 0.9998867511749268
+      },
+      {
+        "frame": 94,
+        "probability": 0.9999675750732422
+      },
+      {
+        "frame": 95,
+        "probability": 0.9990302324295044
+      },
+      {
+        "frame": 96,
+        "probability": 0.999276340007782
+      },
+      {
+        "frame": 97,
+        "probability": 0.9997468590736389
+      },
+      {
+        "frame": 98,
+        "probability": 0.9896718263626099
+      },
+      {
+        "frame": 99,
+        "probability": 0.9980276226997375
+      },
+      {
+        "frame": 100,
+        "probability": 0.999562680721283
+      },
+      {
+        "frame": 101,
+        "probability": 0.9874721169471741
+      },
+      {
+        "frame": 102,
+        "probability": 0.9934101700782776
+      },
+      {
+        "frame": 103,
+        "probability": 0.9839708209037781
+      },
+      {
+        "frame": 106,
+        "probability": 0.9945095181465149
+      },
+      {
+        "frame": 107,
+        "probability": 0.9940428137779236
+      },
+      {
+        "frame": 112,
+        "probability": 0.9895108342170715
+      },
+      {
+        "frame": 113,
+        "probability": 0.9994600415229797
+      },
+      {
+        "frame": 114,
+        "probability": 0.9957684278488159
+      },
+      {
+        "frame": 115,
+        "probability": 0.9952816367149353
+      },
+      {
+        "frame": 116,
+        "probability": 0.9997120499610901
+      },
+      {
+        "frame": 117,
+        "probability": 0.9999103546142578
+      },
+      {
+        "frame": 118,
+        "probability": 0.9990600943565369
+      },
+      {
+        "frame": 119,
+        "probability": 0.9967013001441956
+      },
+      {
+        "frame": 120,
+        "probability": 0.9997387528419495
+      },
+      {
+        "frame": 121,
+        "probability": 0.997285008430481
+      },
+      {
+        "frame": 122,
+        "probability": 0.9997028708457947
+      },
+      {
+        "frame": 123,
+        "probability": 0.9832144975662231
+      },
+      {
+        "frame": 124,
+        "probability": 0.9798226952552795
+      },
+      {
+        "frame": 128,
+        "probability": 0.9926542043685913
+      },
+      {
+        "frame": 129,
+        "probability": 0.9999068975448608
+      },
+      {
+        "frame": 130,
+        "probability": 0.9998464584350586
+      },
+      {
+        "frame": 131,
+        "probability": 0.999996542930603
+      },
+      {
+        "frame": 132,
+        "probability": 0.9999977350234985
+      },
+      {
+        "frame": 133,
+        "probability": 0.9999966621398926
+      },
+      {
+        "frame": 134,
+        "probability": 0.9999490976333618
+      },
+      {
+        "frame": 135,
+        "probability": 0.9999086856842041
+      },
+      {
+        "frame": 136,
+        "probability": 0.9999939203262329
+      },
+      {
+        "frame": 137,
+        "probability": 0.9999978542327881
+      },
+      {
+        "frame": 138,
+        "probability": 0.9999738931655884
+      },
+      {
+        "frame": 139,
+        "probability": 0.9998218417167664
+      },
+      {
+        "frame": 140,
+        "probability": 0.9997926354408264
+      },
+      {
+        "frame": 141,
+        "probability": 0.9999434947967529
+      },
+      {
+        "frame": 142,
+        "probability": 0.9999970197677612
+      },
+      {
+        "frame": 143,
+        "probability": 0.9999916553497314
+      },
+      {
+        "frame": 144,
+        "probability": 0.9999891519546509
+      },
+      {
+        "frame": 145,
+        "probability": 0.9999933242797852
+      },
+      {
+        "frame": 146,
+        "probability": 0.9999985694885254
+      },
+      {
+        "frame": 147,
+        "probability": 0.9999821186065674
+      },
+      {
+        "frame": 148,
+        "probability": 0.9999746084213257
+      },
+      {
+        "frame": 149,
+        "probability": 0.9999407529830933
+      },
+      {
+        "frame": 150,
+        "probability": 0.9999760389328003
+      },
+      {
+        "frame": 151,
+        "probability": 0.9999971389770508
+      },
+      {
+        "frame": 152,
+        "probability": 0.9999916553497314
+      },
+      {
+        "frame": 153,
+        "probability": 0.9999691247940063
+      },
+      {
+        "frame": 154,
+        "probability": 0.9999402761459351
+      },
+      {
+        "frame": 155,
+        "probability": 0.9999938011169434
+      },
+      {
+        "frame": 156,
+        "probability": 0.9999988079071045
+      },
+      {
+        "frame": 157,
+        "probability": 0.9999936819076538
+      },
+      {
+        "frame": 158,
+        "probability": 0.9999936819076538
+      },
+      {
+        "frame": 159,
+        "probability": 0.9999948740005493
+      },
+      {
+        "frame": 160,
+        "probability": 0.9999755620956421
+      },
+      {
+        "frame": 161,
+        "probability": 0.9999657869338989
+      },
+      {
+        "frame": 162,
+        "probability": 0.9999632835388184
+      },
+      {
+        "frame": 163,
+        "probability": 0.9999667406082153
+      },
+      {
+        "frame": 164,
+        "probability": 0.9998952150344849
+      },
+      {
+        "frame": 165,
+        "probability": 0.9999984502792358
+      },
+      {
+        "frame": 166,
+        "probability": 0.9999884366989136
+      },
+      {
+        "frame": 167,
+        "probability": 0.99992835521698
+      },
+      {
+        "frame": 168,
+        "probability": 0.9999585151672363
+      },
+      {
+        "frame": 169,
+        "probability": 0.9999722242355347
+      },
+      {
+        "frame": 170,
+        "probability": 0.9999397993087769
+      },
+      {
+        "frame": 171,
+        "probability": 0.9994946718215942
+      },
+      {
+        "frame": 172,
+        "probability": 0.9997712969779968
+      },
+      {
+        "frame": 173,
+        "probability": 0.9998726844787598
+      },
+      {
+        "frame": 174,
+        "probability": 0.9999538660049438
+      },
+      {
+        "frame": 175,
+        "probability": 0.9999589920043945
+      },
+      {
+        "frame": 176,
+        "probability": 0.9998766183853149
+      },
+      {
+        "frame": 177,
+        "probability": 0.9999781847000122
+      },
+      {
+        "frame": 178,
+        "probability": 0.9999839067459106
+      },
+      {
+        "frame": 179,
+        "probability": 0.9999948740005493
+      },
+      {
+        "frame": 180,
+        "probability": 0.9999955892562866
+      },
+      {
+        "frame": 181,
+        "probability": 0.9999966621398926
+      },
+      {
+        "frame": 182,
+        "probability": 0.9999897480010986
+      },
+      {
+        "frame": 183,
+        "probability": 0.9999891519546509
+      },
+      {
+        "frame": 184,
+        "probability": 0.9999951124191284
+      },
+      {
+        "frame": 185,
+        "probability": 0.999990701675415
+      },
+      {
+        "frame": 186,
+        "probability": 0.9999445676803589
+      },
+      {
+        "frame": 187,
+        "probability": 0.9999762773513794
+      },
+      {
+        "frame": 188,
+        "probability": 0.9999969005584717
+      },
+      {
+        "frame": 189,
+        "probability": 0.9999665021896362
+      },
+      {
+        "frame": 190,
+        "probability": 0.9966233968734741
+      },
+      {
+        "frame": 191,
+        "probability": 0.9999921321868896
+      },
+      {
+        "frame": 192,
+        "probability": 0.999996542930603
+      },
+      {
+        "frame": 193,
+        "probability": 0.9999277591705322
+      },
+      {
+        "frame": 194,
+        "probability": 0.999562680721283
+      },
+      {
+        "frame": 195,
+        "probability": 0.9999635219573975
+      },
+      {
+        "frame": 196,
+        "probability": 0.9999681711196899
+      },
+      {
+        "frame": 197,
+        "probability": 0.999984860420227
+      },
+      {
+        "frame": 198,
+        "probability": 0.9999964237213135
+      },
+      {
+        "frame": 199,
+        "probability": 0.9999905824661255
+      },
+      {
+        "frame": 200,
+        "probability": 0.9998717308044434
+      },
+      {
+        "frame": 201,
+        "probability": 0.9995875954627991
+      },
+      {
+        "frame": 202,
+        "probability": 0.9999836683273315
+      },
+      {
+        "frame": 203,
+        "probability": 0.9998358488082886
+      },
+      {
+        "frame": 205,
+        "probability": 0.9986801743507385
+      },
+      {
+        "frame": 206,
+        "probability": 0.9997685551643372
+      },
+      {
+        "frame": 207,
+        "probability": 0.999934196472168
+      },
+      {
+        "frame": 208,
+        "probability": 0.9999775886535645
+      },
+      {
+        "frame": 209,
+        "probability": 0.9999908208847046
+      },
+      {
+        "frame": 210,
+        "probability": 0.9999374151229858
+      },
+      {
+        "frame": 211,
+        "probability": 0.9998390674591064
+      },
+      {
+        "frame": 212,
+        "probability": 0.9996750354766846
+      },
+      {
+        "frame": 213,
+        "probability": 0.999823272228241
+      },
+      {
+        "frame": 214,
+        "probability": 0.991355836391449
+      },
+      {
+        "frame": 215,
+        "probability": 0.9999302625656128
+      },
+      {
+        "frame": 216,
+        "probability": 0.999956488609314
+      },
+      {
+        "frame": 217,
+        "probability": 0.9848692417144775
+      },
+      {
+        "frame": 223,
+        "probability": 0.9993880987167358
+      },
+      {
+        "frame": 225,
+        "probability": 0.9947799444198608
+      },
+      {
+        "frame": 230,
+        "probability": 0.9945307374000549
+      },
+      {
+        "frame": 231,
+        "probability": 0.9930961728096008
+      },
+      {
+        "frame": 235,
+        "probability": 0.9785493016242981
+      },
+      {
+        "frame": 244,
+        "probability": 0.9964203834533691
+      },
+      {
+        "frame": 245,
+        "probability": 0.9908034801483154
+      }
+    ]
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_18-01-22.mp4": {
+    "total_frames": 136,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-09-32.mp4": {
+    "total_frames": 29,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_12-44-55.mp4": {
+    "total_frames": 131,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_12-38-01.mp4": {
+    "total_frames": 125,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_15-05-47.mp4": {
+    "total_frames": 90,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_20-04-12.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-09-30.mp4": {
+    "total_frames": 109,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-09-19.mp4": {
+    "total_frames": 119,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-52-35.mp4": {
+    "total_frames": 124,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-55-24.mp4": {
+    "total_frames": 130,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-21-20.mp4": {
+    "total_frames": 79,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-42-29.mp4": {
+    "total_frames": 128,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_22-43-40.mp4": {
+    "total_frames": 89,
+    "fish_frames": [
+      {
+        "frame": 0,
+        "probability": 0.9929881691932678
+      },
+      {
+        "frame": 2,
+        "probability": 0.9968273043632507
+      },
+      {
+        "frame": 3,
+        "probability": 0.9940428137779236
+      },
+      {
+        "frame": 5,
+        "probability": 0.982624351978302
+      },
+      {
+        "frame": 6,
+        "probability": 0.9997294545173645
+      },
+      {
+        "frame": 7,
+        "probability": 0.9986222982406616
+      },
+      {
+        "frame": 8,
+        "probability": 0.9997757077217102
+      },
+      {
+        "frame": 9,
+        "probability": 0.9997809529304504
+      },
+      {
+        "frame": 10,
+        "probability": 0.9991030693054199
+      },
+      {
+        "frame": 11,
+        "probability": 0.9999027252197266
+      },
+      {
+        "frame": 12,
+        "probability": 0.9999512434005737
+      },
+      {
+        "frame": 13,
+        "probability": 0.9997325539588928
+      },
+      {
+        "frame": 14,
+        "probability": 0.9998133778572083
+      },
+      {
+        "frame": 15,
+        "probability": 0.9958337545394897
+      },
+      {
+        "frame": 16,
+        "probability": 0.9969722032546997
+      },
+      {
+        "frame": 17,
+        "probability": 0.9995344877243042
+      },
+      {
+        "frame": 18,
+        "probability": 0.9899086952209473
+      },
+      {
+        "frame": 19,
+        "probability": 0.9997175335884094
+      },
+      {
+        "frame": 20,
+        "probability": 0.9990673661231995
+      },
+      {
+        "frame": 23,
+        "probability": 0.9998568296432495
+      },
+      {
+        "frame": 26,
+        "probability": 0.9978001713752747
+      },
+      {
+        "frame": 27,
+        "probability": 0.9965969920158386
+      },
+      {
+        "frame": 31,
+        "probability": 0.9921233057975769
+      },
+      {
+        "frame": 34,
+        "probability": 0.9992533326148987
+      },
+      {
+        "frame": 37,
+        "probability": 0.9936610460281372
+      },
+      {
+        "frame": 38,
+        "probability": 0.9997685551643372
+      },
+      {
+        "frame": 39,
+        "probability": 0.999220609664917
+      },
+      {
+        "frame": 40,
+        "probability": 0.9999517202377319
+      },
+      {
+        "frame": 41,
+        "probability": 0.9998989105224609
+      },
+      {
+        "frame": 42,
+        "probability": 0.9999079704284668
+      },
+      {
+        "frame": 43,
+        "probability": 0.9996458292007446
+      },
+      {
+        "frame": 44,
+        "probability": 0.9999227523803711
+      },
+      {
+        "frame": 45,
+        "probability": 0.9969005584716797
+      },
+      {
+        "frame": 46,
+        "probability": 0.9999328851699829
+      },
+      {
+        "frame": 47,
+        "probability": 0.999595582485199
+      },
+      {
+        "frame": 48,
+        "probability": 0.999045193195343
+      },
+      {
+        "frame": 49,
+        "probability": 0.9878996014595032
+      },
+      {
+        "frame": 51,
+        "probability": 0.9986435770988464
+      },
+      {
+        "frame": 52,
+        "probability": 0.9993013143539429
+      },
+      {
+        "frame": 53,
+        "probability": 0.9998433589935303
+      },
+      {
+        "frame": 54,
+        "probability": 0.9999148845672607
+      },
+      {
+        "frame": 55,
+        "probability": 0.9998770952224731
+      },
+      {
+        "frame": 56,
+        "probability": 0.9999551773071289
+      },
+      {
+        "frame": 57,
+        "probability": 0.9999489784240723
+      },
+      {
+        "frame": 58,
+        "probability": 0.99997878074646
+      },
+      {
+        "frame": 59,
+        "probability": 0.9999344348907471
+      },
+      {
+        "frame": 60,
+        "probability": 0.999976396560669
+      },
+      {
+        "frame": 61,
+        "probability": 0.9999427795410156
+      },
+      {
+        "frame": 62,
+        "probability": 0.9947799444198608
+      },
+      {
+        "frame": 63,
+        "probability": 0.9999688863754272
+      },
+      {
+        "frame": 64,
+        "probability": 0.9998809099197388
+      },
+      {
+        "frame": 65,
+        "probability": 0.9964063763618469
+      },
+      {
+        "frame": 66,
+        "probability": 0.9986329674720764
+      },
+      {
+        "frame": 67,
+        "probability": 0.9999933242797852
+      },
+      {
+        "frame": 68,
+        "probability": 0.9999974966049194
+      },
+      {
+        "frame": 69,
+        "probability": 0.9999939203262329
+      },
+      {
+        "frame": 70,
+        "probability": 0.9999977350234985
+      },
+      {
+        "frame": 71,
+        "probability": 0.9999983310699463
+      },
+      {
+        "frame": 72,
+        "probability": 0.9999959468841553
+      },
+      {
+        "frame": 73,
+        "probability": 0.9999860525131226
+      },
+      {
+        "frame": 74,
+        "probability": 0.9999483823776245
+      },
+      {
+        "frame": 75,
+        "probability": 0.9999977350234985
+      },
+      {
+        "frame": 76,
+        "probability": 0.9999966621398926
+      },
+      {
+        "frame": 77,
+        "probability": 0.9999961853027344
+      },
+      {
+        "frame": 78,
+        "probability": 0.9999992847442627
+      },
+      {
+        "frame": 79,
+        "probability": 0.9999909400939941
+      },
+      {
+        "frame": 80,
+        "probability": 0.9999985694885254
+      },
+      {
+        "frame": 81,
+        "probability": 0.9999983310699463
+      },
+      {
+        "frame": 82,
+        "probability": 0.9999972581863403
+      },
+      {
+        "frame": 83,
+        "probability": 0.9999966621398926
+      },
+      {
+        "frame": 84,
+        "probability": 0.9999986886978149
+      },
+      {
+        "frame": 85,
+        "probability": 0.9999936819076538
+      },
+      {
+        "frame": 86,
+        "probability": 0.9999949932098389
+      },
+      {
+        "frame": 87,
+        "probability": 0.9999933242797852
+      },
+      {
+        "frame": 88,
+        "probability": 0.9999936819076538
+      }
+    ]
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_14-48-40.mp4": {
+    "total_frames": 49,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_08-29-49.mp4": {
+    "total_frames": 388,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_03-45-34.mp4": {
+    "total_frames": 384,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-24-33.mp4": {
+    "total_frames": 69,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_11-29-48.mp4": {
+    "total_frames": 130,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_09-16-31.mp4": {
+    "total_frames": 127,
+    "fish_frames": []
+  },
+  "/Users/joaodsm/Desktop/Joao Workspace/fish-detection/fish-detection/data/14_08_2025/1_2025-08-14_17-24-26.mp4": {
+    "total_frames": 126,
+    "fish_frames": []
+  }
+}
