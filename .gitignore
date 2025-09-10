@@ -1,2 +1,3 @@
 fish_env
-.vscode/
+.vscode
+.DS_Store
