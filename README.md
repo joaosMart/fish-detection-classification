@@ -1,92 +1,203 @@
-# fish-detection
 
 
 
-## Getting started
+# Fish Detection System
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Authors
 
-## Add your files
+- **João da Silva Martins**
+Email: joao.da.silva.martins@ahafogvatn.is
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+An AI-powered system for detecting fish in video files with an interactive timeline viewer. Perfect for researchers, aquaculture professionals, and anyone who needs to analyze fish presence in video footage.
+
+## Features
+
+- **Dual Detection Modes**: Single fish and multiple fish detection
+- **AI-Powered Analysis**: Uses advanced vision-language models for accurate detection
+- **Interactive Timeline Viewer**: Web-based interface to view videos with fish detection markers
+- **Cross-Platform Support**: Works on Windows, macOS, and Linux
+- **GPU Acceleration**: Supports CUDA (NVIDIA) and MPS (Apple Silicon) for faster processing
+- **Batch Processing**: Process multiple frames at once
+- **Export Results**: JSON format for further analysis
+
+## Quick Start
+
+### 1. Installation
+
+```bash
+# Clone or download this repository
+git clone <your-repository-url>
+cd fish-detection-system
+```
+
+### 2. Basic Usage
+
+**Step 1: Detect Fish in Videos**
+```bash
+# Single fish detection
+python fish_detection/fish-detection.py single --video-dir ./your_videos
+
+# Multiple fish detection (requires single detection first)
+python fish_detection/fish-detection.py multi --video-dir ./your_videos
+```
+
+**Step 2: View Results with Interactive Timeline**
+```bash
+# Create timeline viewer
+python timeline_viewer.py --session your_videos --mode both
+```
+
+That's it! Your browser will open with an interactive viewer where you can click on timeline markers to jump directly to fish detections.
+
+## Detailed Usage
+
+### Fish Detection
+
+The system supports two detection modes:
+
+**Single Fish Detection**
+```bash
+# Process all videos in a directory
+python fish_detector.py single --video-dir ./videos
+
+# Process specific videos
+python fish_detector.py single --videos video1.mp4 video2.mp4
+
+# Custom output directory
+python fish_detector.py single --video-dir ./data --output-dir ./results
+```
+
+**Multi-Fish Detection**
+```bash
+# Must run single detection first!
+python fish_detector.py multi --video-dir ./videos
+```
+
+### Timeline Viewer
+
+Create interactive web viewers for your detection results:
+
+```bash
+# Single fish timeline
+python timeline_viewer.py --session your_videos --mode single
+
+# Multi-fish timeline
+python timeline_viewer.py --session your_videos --mode multi
+
+# Both modes in separate tabs
+python timeline_viewer.py --session your_videos --mode both
+```
+
+## How It Works
+
+### Detection Process
+
+1. **Frame Sampling**: Processes every 3rd frame for efficiency
+2. **AI Analysis**: Uses OpenCLIP vision-language model with fish-specific prompts
+3. **Threshold Filtering**: Only frames above confidence threshold are marked as detections
+4. **Results Export**: Saves detailed JSON results and raw probability scores
+
+### Timeline Viewer
+
+1. **Video Copying**: Creates local copies of videos with detections
+2. **Web Interface**: Generates HTML viewer with embedded timeline
+3. **Interactive Features**: Click timeline markers to jump to exact detection moments
+4. **Local Server**: Runs HTTP server for smooth video playback
+
+## Output Structure
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.hafogvatn.is/joaodsm/fish-detection.git
-git branch -M main
-git push -uf origin main
+output/detection_output/
+└── your_session_name/
+    ├── fish_detection/              # Single fish results
+    │   ├── results.json
+    │   ├── scores.pkl
+    │   ├── videos/                  # Copied videos
+    │   └── timeline_viewer.html     # Web viewer
+    └── multi_fish/                  # Multi-fish results
+        ├── results.json
+        ├── scores.pkl
+        ├── videos/
+        └── timeline_viewer.html
 ```
 
-## Integrate with your tools
+## Results Format
 
-- [ ] [Set up project integrations](https://gitlab.hafogvatn.is/joaodsm/fish-detection/-/settings/integrations)
+### JSON Results Structure
+```json
+{
+  "video_path": {
+    "total_frames": 1000,
+    "frames_processed": 334,
+    "fish_frames": [
+      {
+        "frame": 45,
+        "probability": 0.985
+      }
+    ]
+  }
+}
+```
 
-## Collaborate with your team
+## System Requirements
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Hardware
+- **CPU**: Any modern processor
+- **GPU**: Optional but recommended (NVIDIA CUDA or Apple Silicon)
+- **RAM**: 8GB+ recommended
+- **Storage**: Space for video copies in output directory
 
-## Test and Deploy
+### Software
+- **Python**: 3.8 or higher
+- **Operating System**: Windows 10+, macOS 10.14+, or Linux
 
-Use the built-in continuous integration in GitLab.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Tips for Best Results
 
-***
+### Processing Tips
+- Run single fish detection before multi-fish detection
+- Use GPU acceleration when available (automatically detected)
+- Check the timeline viewer to verify detection quality
 
-# Editing this README
+## Troubleshooting
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Common Issues
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+**"No videos found"**
+- Check video file format (MP4 supported)
+- Verify directory path is correct
+- Ensure videos aren't corrupted
 
-## Name
-Choose a self-explaining name for your project.
+**"Model loading failed"**
+- Check internet connection (models download on first use)
+- Verify sufficient disk space
+- Try CPU mode if GPU issues occur
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+**"Timeline viewer not opening"**
+- Check if port 8000 is available
+- Try a different browser
+- Look for firewall blocking local server
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Performance Optimization
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+**For Faster Processing:**
+- Use NVIDIA GPU with CUDA or Apple Silicon with MPS
+- Process smaller batches if memory limited
+- Use SSD storage for video files
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+**For Better Accuracy:**
+- Use high-quality video footage
+- Ensure consistent lighting
+- Pre-process videos to enhance contrast if needed
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+If you encounter issues:
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+1. Check the troubleshooting section above
+2. Verify all dependencies are installed correctly
+3. Ensure video files are in supported format (MP4)
+4. Check system requirements are met
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
