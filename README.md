@@ -150,7 +150,6 @@ output/detection_output/
 
 ### Software
 - **Python**: 3.8 or higher
-- **Operating System**: Windows 10+, macOS 10.14+, or Linux
 
 
 ## Tips for Best Results
@@ -185,12 +184,6 @@ output/detection_output/
 - Use NVIDIA GPU with CUDA or Apple Silicon with MPS
 - Process smaller batches if memory limited
 - Use SSD storage for video files
-
-**For Better Accuracy:**
-- Use high-quality video footage
-- Ensure consistent lighting
-- Pre-process videos to enhance contrast if needed
-
 
 ## Support
 
