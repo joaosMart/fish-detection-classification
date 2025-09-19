@@ -36,16 +36,19 @@ cd fish-detection-system
 **Step 1: Detect Fish in Videos**
 ```bash
 # Single fish detection
-python fish_detection/fish-detection.py single --video-dir ./your_videos
+python fish_detection/fish-detection.py single --video-dir ./data/your_videos
 
 # Multiple fish detection (requires single detection first)
-python fish_detection/fish-detection.py multi --video-dir ./your_videos
+python fish_detection/fish-detection.py multi --video-dir ./data/your_videos
 ```
 
 **Step 2: View Results with Interactive Timeline**
+
+The session ```your_videos``` should be the output of the models which can be found in ```output/detection_output```.
+
 ```bash
 # Create timeline viewer
-python timeline_viewer.py --session your_videos --mode both
+python fish_timeline_viewer.py --session your_videos --mode both
 ```
 
 That's it! Your browser will open with an interactive viewer where you can click on timeline markers to jump directly to fish detections.
