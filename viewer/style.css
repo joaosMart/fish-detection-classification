@@ -1,0 +1,319 @@
+/* === Reset & Base === */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #1a1a2e;
+    --sidebar-bg: #16213e;
+    --controls-bg: #0f3460;
+    --accent: #4cc9f0;
+    --single: #e74c3c;
+    --multi: #f39c12;
+    --text: #e0e0e0;
+    --text-dim: #888;
+    --text-muted: #555;
+    --border: #0f3460;
+    --timeline-bg: #0a0a1a;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* === Top Bar === */
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--sidebar-bg);
+    border-bottom: 1px solid var(--border);
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-weight: bold;
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 18px;
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.stat-single { color: var(--single); }
+.stat-multi { color: var(--multi); }
+.stat-session { color: var(--accent); }
+
+/* === Layout === */
+#app {
+    display: flex;
+    height: calc(100vh - 48px);
+}
+
+/* === Sidebar === */
+#sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+#video-list {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.video-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(15, 52, 96, 0.5);
+    transition: background 0.15s;
+}
+
+.video-item:hover {
+    background: rgba(76, 201, 240, 0.08);
+}
+
+.video-item.active {
+    background: var(--controls-bg);
+    border-left: 3px solid var(--accent);
+    padding-left: 11px;
+}
+
+.video-item-name {
+    font-size: 12px;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-item-stats {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 3px;
+}
+
+.video-item-stats .single-count { color: var(--single); }
+.video-item-stats .multi-count { color: var(--multi); }
+
+.video-item.no-detections {
+    opacity: 0.4;
+}
+
+.video-item.no-detections .video-item-name {
+    color: var(--text-dim);
+}
+
+/* === Main Area === */
+#main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* === Player === */
+#player-container {
+    flex: 1;
+    background: #000;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+#video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.player-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.player-overlay.hidden {
+    display: none;
+}
+
+/* === Timeline === */
+#timeline-section {
+    background: var(--sidebar-bg);
+    padding: 10px 18px 6px;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.timeline-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timeline-legend {
+    font-size: 10px;
+    display: flex;
+    gap: 12px;
+}
+
+.legend-single { color: var(--single); }
+.legend-multi { color: var(--multi); }
+
+#timeline-bar {
+    position: relative;
+    height: 32px;
+    background: var(--timeline-bg);
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: visible;
+}
+
+#playhead {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    z-index: 3;
+    pointer-events: none;
+    transition: left 0.1s linear;
+}
+
+#timeline-markers {
+    position: absolute;
+    inset: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    z-index: 2;
+}
+
+.timeline-marker:hover {
+    transform: scale(1.6);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    z-index: 5;
+}
+
+.timeline-marker.highlight {
+    transform: scale(1.6);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.timeline-marker.single {
+    background: var(--single);
+    top: 4px;
+}
+
+.timeline-marker.multi {
+    background: var(--multi);
+    bottom: 4px;
+    top: auto;
+}
+
+#timeline-times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+/* === Marker Tooltip === */
+.marker-tooltip {
+    position: fixed;
+    background: #2c3e50;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 1.4;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* === Controls Bar === */
+#controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 18px;
+    background: var(--controls-bg);
+    flex-shrink: 0;
+    border-top: 1px solid var(--border);
+}
+
+.controls-group {
+    display: flex;
+    gap: 8px;
+}
+
+#controls-bar button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-dim);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+#controls-bar button:hover {
+    background: rgba(76, 201, 240, 0.15);
+    color: var(--text);
+}
+
+.controls-hints {
+    color: var(--text-muted);
+    font-size: 10px;
+}
