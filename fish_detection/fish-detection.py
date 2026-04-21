@@ -507,21 +507,82 @@ class FishDetector:
         print(f"  - Filtered results: {self.results_file}")
         print(f"  - Session output directory: {self.output_dir}")
     
+    def identify_segments(self, filtered_results: Dict[str, Dict]) -> Dict[str, Dict]:
+        """Identify fish segments in filtered results.
+
+        Groups consecutive fish detections into segments, fills intermediate
+        frames, and enriches results with segment assignments.
+
+        Thresholds are derived from each video's fps:
+        - gap_threshold: 2 * fps (2 seconds gap = new segment)
+        - min_segment_length: fps (1 second of fish = valid segment)
+        """
+        from segment_utils import find_segments
+
+        for video_path, data in filtered_results.items():
+            fish_frames = data.get('fish_frames', [])
+
+            if not fish_frames:
+                data['segments_summary'] = {'total_segments': 0, 'segments': []}
+                continue
+
+            # Read fps from video to compute dynamic thresholds
+            cap = cv2.VideoCapture(str(video_path))
+            fps = cap.get(cv2.CAP_PROP_FPS)
+            cap.release()
+
+            if fps <= 0:
+                fps = 10  # fallback
+
+            gap_threshold = int(2 * fps)
+            min_segment_length = int(fps)
+
+            segments = find_segments(fish_frames, min_segment_length, gap_threshold)
+
+            # Replace fish_frames with enriched frames from all valid segments
+            enriched_frames = []
+            segments_summary = []
+            for seg in segments:
+                enriched_frames.extend(seg['frames'])
+                segments_summary.append({
+                    'segment_number': seg['segment_number'],
+                    'start_frame': seg['start_frame'],
+                    'end_frame': seg['end_frame'],
+                    'size': seg['size'],
+                })
+
+            data['fish_frames'] = enriched_frames
+            data['segments_summary'] = {
+                'total_segments': len(segments),
+                'segments': segments_summary,
+            }
+
+        # Save enriched results
+        with open(self.results_file, 'w') as f:
+            json.dump(filtered_results, f, indent=2)
+
+        print(f"Segment identification complete. Results updated in: {self.results_file}")
+        return filtered_results
+
     def run(self, video_files: List[str]):
         """Run the complete fish detection pipeline"""
         print(f"Starting {self.detection_type.upper()} Fish Detection...")
         print(f"Videos to process: {len(video_files)}")
-        
+
         # Process videos
         scores = self.analyze_videos(video_files)
-        
+
         if not scores:
             print("No videos were successfully processed!")
             return
-        
+
         # Filter results
         results = self.filter_results(scores)
-        
+
+        # Identify segments (single fish detection only)
+        if self.detection_type == "single":
+            results = self.identify_segments(results)
+
         # Print summary
         self.print_summary(results)
 
