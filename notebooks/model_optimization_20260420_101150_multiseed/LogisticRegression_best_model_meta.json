@@ -1,0 +1,8 @@
+{
+    "best_seed": 4,
+    "weighted_f1": 0.9648385080599812,
+    "best_params": {
+        "C": 230.39869092007646,
+        "class_weight": null
+    }
+}

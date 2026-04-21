@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Fish Detection Timeline</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .summary {
+            background: linear-gradient(135deg, #0599ee, #a02424dd);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .video-header {
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #0599ee, #0599eedd);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .video-header:hover {
+            background: linear-gradient(135deg, #0599eedd, #0599eebb);
+        }
+        .video-name {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .video-stats {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .dropdown-arrow {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            margin-left: 15px;
+        }
+        .video-content {
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: white;
+            max-height: 0;
+            padding: 0 25px;
+        }
+        .video-content.expanded {
+            max-height: 2000px;
+            padding: 25px;
+        }
+        video {
+            width: 100%;
+            max-height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        .timeline-container {
+            margin: 20px 0;
+            position: relative;
+        }
+        .timeline {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to right, #ecf0f1, #bdc3c7);
+            border-radius: 25px;
+            position: relative;
+            margin: 15px 0;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .timeline-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #a02424;
+            border: 2px solid white;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .timeline-marker:hover {
+            transform: translateY(-50%) scale(1.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+        .marker-tooltip {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2c3e50;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .timeline-marker:hover .marker-tooltip {
+            opacity: 1;
+        }
+        .marker-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -4px;
+            border: 4px solid transparent;
+            border-top-color: #2c3e50;
+        }
+        .video-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            background: #e8f4fd;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+        .info-item {
+            text-align: center;
+            padding: 5px;
+        }
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐟 Single Fish Detection Timeline</h1>
+        
+        <div class="summary">
+            <div>🎬 4 Videos | 🐟 109 Fish Detections</div>
+        </div>
+        
+        <div class="instructions">
+            <h3>🎯 How to Use:</h3>
+            <p><strong>Click on video names</strong> to expand and view the video with fish detection timeline.</p>
+            <p><strong>Click the red dots</strong> in the timeline to jump directly to fish detections!</p>
+        </div>
+
+        <div class="video-container">
+            <div class="video-header" onclick="toggleVideo('video0')">
+                <div class="video-name">🎬 1_2025-08-14_22-43-31</div>
+                <div>
+                    <span class="video-stats">🐟 4 detections • ⏱️ 0:12</span>
+                    <span class="dropdown-arrow" id="arrow_video0">▼</span>
+                </div>
+            </div>
+            
+            <div class="video-content" id="content_video0">
+                <video id="player_video0" controls preload="metadata">
+                    <source src="videos/1_2025-08-14_22-43-31.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="video-info">
+                    <div class="info-item"><strong>Duration:</strong><br>0:12</div>
+                    <div class="info-item"><strong>Detections:</strong><br>4</div>
+                    <div class="info-item"><strong>FPS:</strong><br>10.0</div>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-marker" 
+                             style="left: 82.5%"
+                             onclick="jumpToTime('player_video0', 9.92475)">
+                            <div class="marker-tooltip">
+                                0:09<br>
+                                Frame 99<br>
+                                99.7%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 85.0%"
+                             onclick="jumpToTime('player_video0', 10.2255)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 102<br>
+                                98.5%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 87.5%"
+                             onclick="jumpToTime('player_video0', 10.52625)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 105<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 90.0%"
+                             onclick="jumpToTime('player_video0', 10.827)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 108<br>
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-container">
+            <div class="video-header" onclick="toggleVideo('video1')">
+                <div class="video-name">🎬 1_2025-08-14_22-36-47</div>
+                <div>
+                    <span class="video-stats">🐟 12 detections • ⏱️ 0:16</span>
+                    <span class="dropdown-arrow" id="arrow_video1">▼</span>
+                </div>
+            </div>
+            
+            <div class="video-content" id="content_video1">
+                <video id="player_video1" controls preload="metadata">
+                    <source src="videos/1_2025-08-14_22-36-47.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="video-info">
+                    <div class="info-item"><strong>Duration:</strong><br>0:16</div>
+                    <div class="info-item"><strong>Detections:</strong><br>12</div>
+                    <div class="info-item"><strong>FPS:</strong><br>9.9</div>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-marker" 
+                             style="left: 58.9%"
+                             onclick="jumpToTime('player_video1', 9.989571428571429)">
+                            <div class="marker-tooltip">
+                                0:09<br>
+                                Frame 99<br>
+                                99.8%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 60.7%"
+                             onclick="jumpToTime('player_video1', 10.292285714285715)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 102<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 62.5%"
+                             onclick="jumpToTime('player_video1', 10.594999999999999)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 105<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 64.3%"
+                             onclick="jumpToTime('player_video1', 10.897714285714285)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 108<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 66.1%"
+                             onclick="jumpToTime('player_video1', 11.20042857142857)">
+                            <div class="marker-tooltip">
+                                0:11<br>
+                                Frame 111<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 67.9%"
+                             onclick="jumpToTime('player_video1', 11.503142857142857)">
+                            <div class="marker-tooltip">
+                                0:11<br>
+                                Frame 114<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 69.6%"
+                             onclick="jumpToTime('player_video1', 11.805857142857143)">
+                            <div class="marker-tooltip">
+                                0:11<br>
+                                Frame 117<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 71.4%"
+                             onclick="jumpToTime('player_video1', 12.108571428571429)">
+                            <div class="marker-tooltip">
+                                0:12<br>
+                                Frame 120<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 73.2%"
+                             onclick="jumpToTime('player_video1', 12.411285714285714)">
+                            <div class="marker-tooltip">
+                                0:12<br>
+                                Frame 123<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 75.0%"
+                             onclick="jumpToTime('player_video1', 12.713999999999999)">
+                            <div class="marker-tooltip">
+                                0:12<br>
+                                Frame 126<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 76.8%"
+                             onclick="jumpToTime('player_video1', 13.016714285714285)">
+                            <div class="marker-tooltip">
+                                0:13<br>
+                                Frame 129<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 78.6%"
+                             onclick="jumpToTime('player_video1', 13.31942857142857)">
+                            <div class="marker-tooltip">
+                                0:13<br>
+                                Frame 132<br>
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-container">
+            <div class="video-header" onclick="toggleVideo('video2')">
+                <div class="video-name">🎬 1_2025-08-14_22-43-53</div>
+                <div>
+                    <span class="video-stats">🐟 68 detections • ⏱️ 0:24</span>
+                    <span class="dropdown-arrow" id="arrow_video2">▼</span>
+                </div>
+            </div>
+            
+            <div class="video-content" id="content_video2">
+                <video id="player_video2" controls preload="metadata">
+                    <source src="videos/1_2025-08-14_22-43-53.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="video-info">
+                    <div class="info-item"><strong>Duration:</strong><br>0:24</div>
+                    <div class="info-item"><strong>Detections:</strong><br>68</div>
+                    <div class="info-item"><strong>FPS:</strong><br>9.9</div>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-marker" 
+                             style="left: 0.0%"
+                             onclick="jumpToTime('player_video2', 0.0)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 0<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 1.2%"
+                             onclick="jumpToTime('player_video2', 0.3030607287449393)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 3<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 2.4%"
+                             onclick="jumpToTime('player_video2', 0.6061214574898786)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 6<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 3.6%"
+                             onclick="jumpToTime('player_video2', 0.9091821862348177)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 9<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 4.9%"
+                             onclick="jumpToTime('player_video2', 1.2122429149797571)">
+                            <div class="marker-tooltip">
+                                0:01<br>
+                                Frame 12<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 7.3%"
+                             onclick="jumpToTime('player_video2', 1.8183643724696354)">
+                            <div class="marker-tooltip">
+                                0:01<br>
+                                Frame 18<br>
+                                99.7%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 8.5%"
+                             onclick="jumpToTime('player_video2', 2.121425101214575)">
+                            <div class="marker-tooltip">
+                                0:02<br>
+                                Frame 21<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 10.9%"
+                             onclick="jumpToTime('player_video2', 2.727546558704453)">
+                            <div class="marker-tooltip">
+                                0:02<br>
+                                Frame 27<br>
+                                99.7%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 12.1%"
+                             onclick="jumpToTime('player_video2', 3.0306072874493926)">
+                            <div class="marker-tooltip">
+                                0:03<br>
+                                Frame 30<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 13.4%"
+                             onclick="jumpToTime('player_video2', 3.333668016194332)">
+                            <div class="marker-tooltip">
+                                0:03<br>
+                                Frame 33<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 14.6%"
+                             onclick="jumpToTime('player_video2', 3.636728744939271)">
+                            <div class="marker-tooltip">
+                                0:03<br>
+                                Frame 36<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 15.8%"
+                             onclick="jumpToTime('player_video2', 3.9397894736842103)">
+                            <div class="marker-tooltip">
+                                0:03<br>
+                                Frame 39<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 17.0%"
+                             onclick="jumpToTime('player_video2', 4.24285020242915)">
+                            <div class="marker-tooltip">
+                                0:04<br>
+                                Frame 42<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 18.2%"
+                             onclick="jumpToTime('player_video2', 4.545910931174089)">
+                            <div class="marker-tooltip">
+                                0:04<br>
+                                Frame 45<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 19.4%"
+                             onclick="jumpToTime('player_video2', 4.8489716599190285)">
+                            <div class="marker-tooltip">
+                                0:04<br>
+                                Frame 48<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 20.6%"
+                             onclick="jumpToTime('player_video2', 5.152032388663967)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 51<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 21.9%"
+                             onclick="jumpToTime('player_video2', 5.455093117408906)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 54<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 23.1%"
+                             onclick="jumpToTime('player_video2', 5.758153846153846)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 57<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 24.3%"
+                             onclick="jumpToTime('player_video2', 6.061214574898785)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 60<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 25.5%"
+                             onclick="jumpToTime('player_video2', 6.3642753036437245)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 63<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 26.7%"
+                             onclick="jumpToTime('player_video2', 6.667336032388664)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 66<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 27.9%"
+                             onclick="jumpToTime('player_video2', 6.970396761133603)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 69<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 29.1%"
+                             onclick="jumpToTime('player_video2', 7.273457489878542)">
+                            <div class="marker-tooltip">
+                                0:07<br>
+                                Frame 72<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 30.4%"
+                             onclick="jumpToTime('player_video2', 7.576518218623481)">
+                            <div class="marker-tooltip">
+                                0:07<br>
+                                Frame 75<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 31.6%"
+                             onclick="jumpToTime('player_video2', 7.879578947368421)">
+                            <div class="marker-tooltip">
+                                0:07<br>
+                                Frame 78<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 32.8%"
+                             onclick="jumpToTime('player_video2', 8.182639676113359)">
+                            <div class="marker-tooltip">
+                                0:08<br>
+                                Frame 81<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 34.0%"
+                             onclick="jumpToTime('player_video2', 8.4857004048583)">
+                            <div class="marker-tooltip">
+                                0:08<br>
+                                Frame 84<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 35.2%"
+                             onclick="jumpToTime('player_video2', 8.788761133603238)">
+                            <div class="marker-tooltip">
+                                0:08<br>
+                                Frame 87<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 36.4%"
+                             onclick="jumpToTime('player_video2', 9.091821862348178)">
+                            <div class="marker-tooltip">
+                                0:09<br>
+                                Frame 90<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 37.7%"
+                             onclick="jumpToTime('player_video2', 9.394882591093117)">
+                            <div class="marker-tooltip">
+                                0:09<br>
+                                Frame 93<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 38.9%"
+                             onclick="jumpToTime('player_video2', 9.697943319838057)">
+                            <div class="marker-tooltip">
+                                0:09<br>
+                                Frame 96<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 40.1%"
+                             onclick="jumpToTime('player_video2', 10.001004048582995)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 99<br>
+                                99.8%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 41.3%"
+                             onclick="jumpToTime('player_video2', 10.304064777327934)">
+                            <div class="marker-tooltip">
+                                0:10<br>
+                                Frame 102<br>
+                                99.3%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 46.2%"
+                             onclick="jumpToTime('player_video2', 11.516307692307691)">
+                            <div class="marker-tooltip">
+                                0:11<br>
+                                Frame 114<br>
+                                99.6%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 47.4%"
+                             onclick="jumpToTime('player_video2', 11.819368421052632)">
+                            <div class="marker-tooltip">
+                                0:11<br>
+                                Frame 117<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 48.6%"
+                             onclick="jumpToTime('player_video2', 12.12242914979757)">
+                            <div class="marker-tooltip">
+                                0:12<br>
+                                Frame 120<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 49.8%"
+                             onclick="jumpToTime('player_video2', 12.425489878542509)">
+                            <div class="marker-tooltip">
+                                0:12<br>
+                                Frame 123<br>
+                                98.3%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 52.2%"
+                             onclick="jumpToTime('player_video2', 13.031611336032388)">
+                            <div class="marker-tooltip">
+                                0:13<br>
+                                Frame 129<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 53.4%"
+                             onclick="jumpToTime('player_video2', 13.334672064777328)">
+                            <div class="marker-tooltip">
+                                0:13<br>
+                                Frame 132<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 54.7%"
+                             onclick="jumpToTime('player_video2', 13.637732793522266)">
+                            <div class="marker-tooltip">
+                                0:13<br>
+                                Frame 135<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 55.9%"
+                             onclick="jumpToTime('player_video2', 13.940793522267207)">
+                            <div class="marker-tooltip">
+                                0:13<br>
+                                Frame 138<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 57.1%"
+                             onclick="jumpToTime('player_video2', 14.243854251012145)">
+                            <div class="marker-tooltip">
+                                0:14<br>
+                                Frame 141<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 58.3%"
+                             onclick="jumpToTime('player_video2', 14.546914979757084)">
+                            <div class="marker-tooltip">
+                                0:14<br>
+                                Frame 144<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 59.5%"
+                             onclick="jumpToTime('player_video2', 14.849975708502024)">
+                            <div class="marker-tooltip">
+                                0:14<br>
+                                Frame 147<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 60.7%"
+                             onclick="jumpToTime('player_video2', 15.153036437246962)">
+                            <div class="marker-tooltip">
+                                0:15<br>
+                                Frame 150<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 61.9%"
+                             onclick="jumpToTime('player_video2', 15.456097165991903)">
+                            <div class="marker-tooltip">
+                                0:15<br>
+                                Frame 153<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 63.2%"
+                             onclick="jumpToTime('player_video2', 15.759157894736841)">
+                            <div class="marker-tooltip">
+                                0:15<br>
+                                Frame 156<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 64.4%"
+                             onclick="jumpToTime('player_video2', 16.06221862348178)">
+                            <div class="marker-tooltip">
+                                0:16<br>
+                                Frame 159<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 65.6%"
+                             onclick="jumpToTime('player_video2', 16.365279352226718)">
+                            <div class="marker-tooltip">
+                                0:16<br>
+                                Frame 162<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 66.8%"
+                             onclick="jumpToTime('player_video2', 16.66834008097166)">
+                            <div class="marker-tooltip">
+                                0:16<br>
+                                Frame 165<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 68.0%"
+                             onclick="jumpToTime('player_video2', 16.9714008097166)">
+                            <div class="marker-tooltip">
+                                0:16<br>
+                                Frame 168<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 69.2%"
+                             onclick="jumpToTime('player_video2', 17.274461538461537)">
+                            <div class="marker-tooltip">
+                                0:17<br>
+                                Frame 171<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 70.4%"
+                             onclick="jumpToTime('player_video2', 17.577522267206476)">
+                            <div class="marker-tooltip">
+                                0:17<br>
+                                Frame 174<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 71.7%"
+                             onclick="jumpToTime('player_video2', 17.880582995951418)">
+                            <div class="marker-tooltip">
+                                0:17<br>
+                                Frame 177<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 72.9%"
+                             onclick="jumpToTime('player_video2', 18.183643724696356)">
+                            <div class="marker-tooltip">
+                                0:18<br>
+                                Frame 180<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 74.1%"
+                             onclick="jumpToTime('player_video2', 18.486704453441295)">
+                            <div class="marker-tooltip">
+                                0:18<br>
+                                Frame 183<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 75.3%"
+                             onclick="jumpToTime('player_video2', 18.789765182186233)">
+                            <div class="marker-tooltip">
+                                0:18<br>
+                                Frame 186<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 76.5%"
+                             onclick="jumpToTime('player_video2', 19.09282591093117)">
+                            <div class="marker-tooltip">
+                                0:19<br>
+                                Frame 189<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 77.7%"
+                             onclick="jumpToTime('player_video2', 19.395886639676114)">
+                            <div class="marker-tooltip">
+                                0:19<br>
+                                Frame 192<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 78.9%"
+                             onclick="jumpToTime('player_video2', 19.698947368421052)">
+                            <div class="marker-tooltip">
+                                0:19<br>
+                                Frame 195<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 80.2%"
+                             onclick="jumpToTime('player_video2', 20.00200809716599)">
+                            <div class="marker-tooltip">
+                                0:20<br>
+                                Frame 198<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 81.4%"
+                             onclick="jumpToTime('player_video2', 20.30506882591093)">
+                            <div class="marker-tooltip">
+                                0:20<br>
+                                Frame 201<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 83.8%"
+                             onclick="jumpToTime('player_video2', 20.91119028340081)">
+                            <div class="marker-tooltip">
+                                0:20<br>
+                                Frame 207<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 85.0%"
+                             onclick="jumpToTime('player_video2', 21.21425101214575)">
+                            <div class="marker-tooltip">
+                                0:21<br>
+                                Frame 210<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 86.2%"
+                             onclick="jumpToTime('player_video2', 21.517311740890687)">
+                            <div class="marker-tooltip">
+                                0:21<br>
+                                Frame 213<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 87.4%"
+                             onclick="jumpToTime('player_video2', 21.820372469635625)">
+                            <div class="marker-tooltip">
+                                0:21<br>
+                                Frame 216<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 91.1%"
+                             onclick="jumpToTime('player_video2', 22.729554655870444)">
+                            <div class="marker-tooltip">
+                                0:22<br>
+                                Frame 225<br>
+                                99.5%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 93.5%"
+                             onclick="jumpToTime('player_video2', 23.33567611336032)">
+                            <div class="marker-tooltip">
+                                0:23<br>
+                                Frame 231<br>
+                                99.3%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-container">
+            <div class="video-header" onclick="toggleVideo('video3')">
+                <div class="video-name">🎬 1_2025-08-14_22-43-40</div>
+                <div>
+                    <span class="video-stats">🐟 25 detections • ⏱️ 0:08</span>
+                    <span class="dropdown-arrow" id="arrow_video3">▼</span>
+                </div>
+            </div>
+            
+            <div class="video-content" id="content_video3">
+                <video id="player_video3" controls preload="metadata">
+                    <source src="videos/1_2025-08-14_22-43-40.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="video-info">
+                    <div class="info-item"><strong>Duration:</strong><br>0:08</div>
+                    <div class="info-item"><strong>Detections:</strong><br>25</div>
+                    <div class="info-item"><strong>FPS:</strong><br>10.0</div>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-marker" 
+                             style="left: 0.0%"
+                             onclick="jumpToTime('player_video3', 0.0)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 0<br>
+                                99.3%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 3.3%"
+                             onclick="jumpToTime('player_video3', 0.29996666666666666)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 3<br>
+                                99.4%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 6.7%"
+                             onclick="jumpToTime('player_video3', 0.5999333333333333)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 6<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 10.0%"
+                             onclick="jumpToTime('player_video3', 0.8999)">
+                            <div class="marker-tooltip">
+                                0:00<br>
+                                Frame 9<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 13.3%"
+                             onclick="jumpToTime('player_video3', 1.1998666666666666)">
+                            <div class="marker-tooltip">
+                                0:01<br>
+                                Frame 12<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 16.7%"
+                             onclick="jumpToTime('player_video3', 1.4998333333333334)">
+                            <div class="marker-tooltip">
+                                0:01<br>
+                                Frame 15<br>
+                                99.6%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 20.0%"
+                             onclick="jumpToTime('player_video3', 1.7998)">
+                            <div class="marker-tooltip">
+                                0:01<br>
+                                Frame 18<br>
+                                99.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 30.0%"
+                             onclick="jumpToTime('player_video3', 2.6997)">
+                            <div class="marker-tooltip">
+                                0:02<br>
+                                Frame 27<br>
+                                99.7%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 43.3%"
+                             onclick="jumpToTime('player_video3', 3.899566666666667)">
+                            <div class="marker-tooltip">
+                                0:03<br>
+                                Frame 39<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 46.7%"
+                             onclick="jumpToTime('player_video3', 4.199533333333333)">
+                            <div class="marker-tooltip">
+                                0:04<br>
+                                Frame 42<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 50.0%"
+                             onclick="jumpToTime('player_video3', 4.4995)">
+                            <div class="marker-tooltip">
+                                0:04<br>
+                                Frame 45<br>
+                                99.7%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 53.3%"
+                             onclick="jumpToTime('player_video3', 4.7994666666666665)">
+                            <div class="marker-tooltip">
+                                0:04<br>
+                                Frame 48<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 56.7%"
+                             onclick="jumpToTime('player_video3', 5.099433333333334)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 51<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 60.0%"
+                             onclick="jumpToTime('player_video3', 5.3994)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 54<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 63.3%"
+                             onclick="jumpToTime('player_video3', 5.699366666666667)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 57<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 66.7%"
+                             onclick="jumpToTime('player_video3', 5.999333333333333)">
+                            <div class="marker-tooltip">
+                                0:05<br>
+                                Frame 60<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 70.0%"
+                             onclick="jumpToTime('player_video3', 6.299300000000001)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 63<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 73.3%"
+                             onclick="jumpToTime('player_video3', 6.599266666666667)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 66<br>
+                                99.9%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 76.7%"
+                             onclick="jumpToTime('player_video3', 6.899233333333334)">
+                            <div class="marker-tooltip">
+                                0:06<br>
+                                Frame 69<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 80.0%"
+                             onclick="jumpToTime('player_video3', 7.1992)">
+                            <div class="marker-tooltip">
+                                0:07<br>
+                                Frame 72<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 83.3%"
+                             onclick="jumpToTime('player_video3', 7.4991666666666665)">
+                            <div class="marker-tooltip">
+                                0:07<br>
+                                Frame 75<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 86.7%"
+                             onclick="jumpToTime('player_video3', 7.799133333333334)">
+                            <div class="marker-tooltip">
+                                0:07<br>
+                                Frame 78<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 90.0%"
+                             onclick="jumpToTime('player_video3', 8.0991)">
+                            <div class="marker-tooltip">
+                                0:08<br>
+                                Frame 81<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 93.3%"
+                             onclick="jumpToTime('player_video3', 8.399066666666666)">
+                            <div class="marker-tooltip">
+                                0:08<br>
+                                Frame 84<br>
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="timeline-marker" 
+                             style="left: 96.7%"
+                             onclick="jumpToTime('player_video3', 8.699033333333334)">
+                            <div class="marker-tooltip">
+                                0:08<br>
+                                Frame 87<br>
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleVideo(videoId) {
+            console.log('Toggling video:', videoId);
+            
+            var content = document.getElementById('content_' + videoId);
+            var arrow = document.getElementById('arrow_' + videoId);
+            
+            console.log('Content element:', content);
+            console.log('Arrow element:', arrow);
+            
+            if (content && arrow) {
+                if (content.classList.contains('expanded')) {
+                    // Collapse
+                    content.classList.remove('expanded');
+                    arrow.style.transform = 'rotate(0deg)';
+                    arrow.textContent = '▼';
+                    console.log('Video collapsed');
+                } else {
+                    // Expand
+                    content.classList.add('expanded');
+                    arrow.style.transform = 'rotate(180deg)';
+                    arrow.textContent = '▲';
+                    console.log('Video expanded');
+                    
+                    // Scroll into view after expansion
+                    setTimeout(function() {
+                        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                }
+            } else {
+                console.error('Could not find elements for videoId:', videoId);
+            }
+        }
+        
+        function jumpToTime(videoId, timeInSeconds) {
+            console.log('Jump to time called:', videoId, timeInSeconds);
+            var video = document.getElementById(videoId);
+            if (video) {
+                video.pause();
+                
+                if (video.readyState < 2) {
+                    video.addEventListener('loadeddata', function handler() {
+                        video.removeEventListener('loadeddata', handler);
+                        seekAndPlay(video, timeInSeconds);
+                    });
+                } else {
+                    seekAndPlay(video, timeInSeconds);
+                }
+            } else {
+                console.error('Video not found:', videoId);
+            }
+        }
+        
+        function seekAndPlay(video, timeInSeconds) {
+            video.currentTime = timeInSeconds;
+            
+            video.addEventListener('seeked', function handler() {
+                video.removeEventListener('seeked', handler);
+                video.play().catch(function(e) {
+                    console.log('Play prevented:', e);
+                });
+            });
+            
+            setTimeout(function() {
+                if (Math.abs(video.currentTime - timeInSeconds) > 0.5) {
+                    video.currentTime = timeInSeconds;
+                    video.play().catch(function(e) {
+                        console.log('Play prevented:', e);
+                    });
+                }
+            }, 1000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            console.log('Video containers found:', document.querySelectorAll('.video-container').length);
+            console.log('Video headers found:', document.querySelectorAll('.video-header').length);
+            console.log('Video contents found:', document.querySelectorAll('.video-content').length);
+            console.log('Dropdown arrows found:', document.querySelectorAll('.dropdown-arrow').length);
+            
+            // Make sure all videos start collapsed
+            document.querySelectorAll('.video-content').forEach(function(content) {
+                content.classList.remove('expanded');
+            });
+            
+            var markers = document.querySelectorAll('.timeline-marker');
+            markers.forEach(function(marker) {
+                marker.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    this.style.background = '#27ae60';
+                    this.style.transform = 'translateY(-50%) scale(1.3)';
+                    
+                    var self = this;
+                    setTimeout(function() {
+                        self.style.background = '#a02424';
+                        self.style.transform = 'translateY(-50%) scale(1)';
+                    }, 600);
+                });
+            });
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            var videos = document.querySelectorAll('video');
+            videos.forEach(function(video) {
+                if (e.key === ' ' && document.activeElement === video) {
+                    e.preventDefault();
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

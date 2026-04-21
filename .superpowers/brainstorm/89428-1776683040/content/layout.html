@@ -1,0 +1,149 @@
+<h2>Proposed Layout</h2>
+<p class="subtitle">Three-panel layout optimized for efficient playback across 20+ videos</p>
+
+<div class="mockup" style="margin-bottom: 24px;">
+  <div class="mockup-header">Fish Detection Viewer — Main Layout</div>
+  <div class="mockup-body" style="padding: 0; background: #1a1a2e; color: #e0e0e0; font-family: monospace; font-size: 13px;">
+
+    <!-- Top Bar -->
+    <div style="background: #16213e; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #0f3460;">
+      <span style="font-weight: bold; color: #4cc9f0;">🐟 Fish Detection Viewer</span>
+      <div style="display: flex; gap: 16px; font-size: 11px; color: #a0a0a0;">
+        <span>📹 24 videos</span>
+        <span>🐟 347 single</span>
+        <span>🐟🐟 89 multi</span>
+        <span style="color: #4cc9f0;">Session: 14_08_2025</span>
+      </div>
+    </div>
+
+    <div style="display: flex; height: 480px;">
+
+      <!-- Left Sidebar: Video List -->
+      <div style="width: 240px; background: #16213e; border-right: 1px solid #0f3460; overflow-y: auto; flex-shrink: 0;">
+        <div style="padding: 8px 12px; font-size: 11px; color: #888; text-transform: uppercase; border-bottom: 1px solid #0f3460;">
+          Videos — sorted by detections ↓
+        </div>
+
+        <div style="padding: 8px 12px; background: #0f3460; border-left: 3px solid #4cc9f0; cursor: pointer;">
+          <div style="font-size: 12px; color: #fff;">Camera_A_08h30</div>
+          <div style="font-size: 10px; color: #aaa; margin-top: 2px;">
+            <span style="color: #e74c3c;">● 42 single</span> · <span style="color: #f39c12;">● 12 multi</span>
+          </div>
+        </div>
+
+        <div style="padding: 8px 12px; border-bottom: 1px solid #0f3460; cursor: pointer;">
+          <div style="font-size: 12px; color: #ccc;">Camera_B_09h15</div>
+          <div style="font-size: 10px; color: #aaa; margin-top: 2px;">
+            <span style="color: #e74c3c;">● 38 single</span> · <span style="color: #f39c12;">● 8 multi</span>
+          </div>
+        </div>
+
+        <div style="padding: 8px 12px; border-bottom: 1px solid #0f3460; cursor: pointer;">
+          <div style="font-size: 12px; color: #ccc;">Camera_A_10h00</div>
+          <div style="font-size: 10px; color: #aaa; margin-top: 2px;">
+            <span style="color: #e74c3c;">● 31 single</span> · <span style="color: #f39c12;">● 5 multi</span>
+          </div>
+        </div>
+
+        <div style="padding: 8px 12px; border-bottom: 1px solid #0f3460; cursor: pointer;">
+          <div style="font-size: 12px; color: #ccc;">Camera_C_11h45</div>
+          <div style="font-size: 10px; color: #aaa; margin-top: 2px;">
+            <span style="color: #e74c3c;">● 18 single</span> · <span style="color: #888;">no multi</span>
+          </div>
+        </div>
+
+        <div style="padding: 8px 12px; border-bottom: 1px solid #0f3460; opacity: 0.5; cursor: pointer;">
+          <div style="font-size: 12px; color: #888;">Camera_D_14h20</div>
+          <div style="font-size: 10px; color: #666; margin-top: 2px;">
+            <span>no detections</span>
+          </div>
+        </div>
+
+        <div style="padding: 8px 12px; font-size: 10px; color: #666; text-align: center; margin-top: 8px;">
+          ... 19 more videos
+        </div>
+      </div>
+
+      <!-- Main Area -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+
+        <!-- Video Player -->
+        <div style="flex: 1; background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div style="color: #555; font-size: 48px;">▶</div>
+          <div style="position: absolute; bottom: 8px; left: 12px; font-size: 10px; color: #888;">Camera_A_08h30.mp4</div>
+          <div style="position: absolute; bottom: 8px; right: 12px; font-size: 10px; color: #888;">02:34 / 15:20</div>
+        </div>
+
+        <!-- Unified Timeline -->
+        <div style="background: #16213e; padding: 12px 16px; border-top: 1px solid #0f3460;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 10px; color: #888;">TIMELINE</span>
+            <div style="font-size: 10px; color: #888;">
+              <span style="color: #e74c3c;">● single fish</span> &nbsp;
+              <span style="color: #f39c12;">● multi fish</span>
+            </div>
+          </div>
+
+          <!-- Timeline bar -->
+          <div style="position: relative; height: 28px; background: #0a0a1a; border-radius: 4px; overflow: hidden;">
+            <!-- Playhead -->
+            <div style="position: absolute; left: 16.6%; top: 0; bottom: 0; width: 2px; background: #4cc9f0; z-index: 2;"></div>
+
+            <!-- Single fish markers (red dots) -->
+            <div style="position: absolute; left: 5%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 12%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 15%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 28%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 45%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 62%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 78%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 91%; top: 4px; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; cursor: pointer;"></div>
+
+            <!-- Multi fish markers (orange, bottom row) -->
+            <div style="position: absolute; left: 14%; bottom: 4px; width: 8px; height: 8px; background: #f39c12; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 27%; bottom: 4px; width: 8px; height: 8px; background: #f39c12; border-radius: 50%; cursor: pointer;"></div>
+            <div style="position: absolute; left: 61%; bottom: 4px; width: 8px; height: 8px; background: #f39c12; border-radius: 50%; cursor: pointer;"></div>
+          </div>
+
+          <!-- Time labels -->
+          <div style="display: flex; justify-content: space-between; font-size: 9px; color: #555; margin-top: 4px;">
+            <span>0:00</span><span>3:00</span><span>6:00</span><span>9:00</span><span>12:00</span><span>15:20</span>
+          </div>
+        </div>
+
+        <!-- Controls bar -->
+        <div style="background: #0f3460; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+          <div style="display: flex; gap: 12px; color: #aaa;">
+            <span style="cursor: pointer;">⏮ Prev detection</span>
+            <span style="cursor: pointer;">⏭ Next detection</span>
+          </div>
+          <div style="display: flex; gap: 12px; color: #aaa;">
+            <span style="cursor: pointer;">⏮ Prev video</span>
+            <span style="cursor: pointer;">⏭ Next video</span>
+          </div>
+          <div style="color: #666; font-size: 10px;">
+            [P] prev · [N] next · [Space] play/pause · [←→] seek
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Key Design Decisions</h3>
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>This layout works</h3>
+      <p>Sidebar + player + unified timeline is the right structure. Proceed with this.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="changes" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Needs changes</h3>
+      <p>I'll describe what I'd change in the terminal.</p>
+    </div>
+  </div>
+</div>

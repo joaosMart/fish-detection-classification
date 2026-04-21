@@ -82,7 +82,11 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
             single_detections.append({
                 "frame": frame,
                 "time": round(frame / fps, 2),
+<<<<<<< HEAD
                 "probability": round(det["probability"], 4),
+=======
+                "probability": round(det.get("probability") or 0.0, 4),
+>>>>>>> segment-identification
             })
 
         # Build multi detections
@@ -93,14 +97,38 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
             multi_detections.append({
                 "frame": frame,
                 "time": round(frame / fps, 2),
+<<<<<<< HEAD
                 "probability": round(det["probability"], 4),
             })
 
+=======
+                "probability": round(det.get("probability") or 0.0, 4),
+            })
+
+        # Build segments from single detection data
+        segments = []
+        segments_summary = single_data.get("segments_summary", {})
+        if segments_summary.get("segments"):
+            for seg in segments_summary["segments"]:
+                segments.append({
+                    "segment_number": seg["segment_number"],
+                    "start_time": round(seg["start_frame"] / fps, 2),
+                    "end_time": round(seg["end_frame"] / fps, 2),
+                    "start_frame": seg["start_frame"],
+                    "end_frame": seg["end_frame"],
+                    "size": seg["size"],
+                })
+
+>>>>>>> segment-identification
         videos[video_name] = {
             "duration": round(duration, 2),
             "fps": round(fps, 1),
             "single_detections": single_detections,
             "multi_detections": multi_detections,
+<<<<<<< HEAD
+=======
+            "segments": segments,
+>>>>>>> segment-identification
             "source_path": video_path_str,
         }
 
