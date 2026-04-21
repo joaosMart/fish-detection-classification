@@ -1,0 +1,12 @@
+{
+    "best_parameters": {
+        "C": 40.48883392400308,
+        "class_weight": null
+    },
+    "cross_validation_performance": {
+        "best_score": 0.9734146973375234,
+        "std_score": 0.006011352099832946,
+        "train_score": 0.990712574848067,
+        "train_std": 0.00044905147500109933
+    }
+}

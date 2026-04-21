@@ -1,0 +1,69 @@
+{
+    "best_params": {
+        "C": 11.961217347818057,
+        "class_weight": "balanced"
+    },
+    "cv_score": 0.9719862525346847,
+    "train_metrics": {
+        "weighted_f1": 0.9859105816731726,
+        "macro_f1": 0.9840892564914911,
+        "balanced_accuracy": 0.9855090804435159,
+        "confusion_matrix": [
+            [
+                412,
+                0,
+                6
+            ],
+            [
+                6,
+                967,
+                10
+            ],
+            [
+                4,
+                19,
+                1768
+            ]
+        ],
+        "Bleikja_precision": 0.976303317535545,
+        "Bleikja_recall": 0.9856459330143541,
+        "Bleikja_f1": 0.9809523809523809,
+        "Lax_precision": 0.9807302231237323,
+        "Lax_recall": 0.9837232960325534,
+        "Lax_f1": 0.9822244794311833,
+        "Urridi_precision": 0.9910313901345291,
+        "Urridi_recall": 0.9871580122836404,
+        "Urridi_f1": 0.9890909090909091
+    },
+    "test_metrics": {
+        "weighted_f1": 0.9662319125280372,
+        "macro_f1": 0.9566865850032222,
+        "balanced_accuracy": 0.958406388665535,
+        "confusion_matrix": [
+            [
+                97,
+                4,
+                3
+            ],
+            [
+                3,
+                239,
+                4
+            ],
+            [
+                4,
+                9,
+                435
+            ]
+        ],
+        "Bleikja_precision": 0.9326923076923077,
+        "Bleikja_recall": 0.9326923076923077,
+        "Bleikja_f1": 0.9326923076923077,
+        "Lax_precision": 0.9484126984126984,
+        "Lax_recall": 0.9715447154471545,
+        "Lax_f1": 0.9598393574297188,
+        "Urridi_precision": 0.9841628959276018,
+        "Urridi_recall": 0.9709821428571429,
+        "Urridi_f1": 0.9775280898876404
+    }
+}

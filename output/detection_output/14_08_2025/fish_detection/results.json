@@ -1,0 +1,3389 @@
+{
+  "data/14_08_2025/1_2025-08-14_12-17-01.mp4": {
+    "total_frames": 379,
+    "frames_processed": 127,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-16-21.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-53-19.mp4": {
+    "total_frames": 128,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-08-31.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-21-11.mp4": {
+    "total_frames": 128,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-22-54.mp4": {
+    "total_frames": 121,
+    "frames_processed": 40,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-03-12.mp4": {
+    "total_frames": 123,
+    "frames_processed": 41,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-10-55.mp4": {
+    "total_frames": 237,
+    "frames_processed": 79,
+    "fish_frames": [
+      {
+        "frame": 99,
+        "probability": 0.9851576089859009,
+        "segment": 1
+      },
+      {
+        "frame": 100,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 101,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 102,
+        "probability": 0.9999125003814697,
+        "segment": 1
+      },
+      {
+        "frame": 103,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 104,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 105,
+        "probability": 0.9984269142150879,
+        "segment": 1
+      },
+      {
+        "frame": 106,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 107,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 108,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 109,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 110,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 111,
+        "probability": 0.9977481961250305,
+        "segment": 1
+      },
+      {
+        "frame": 112,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 113,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 114,
+        "probability": 0.9950370192527771,
+        "segment": 1
+      },
+      {
+        "frame": 115,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 116,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 117,
+        "probability": 0.9913222789764404,
+        "segment": 1
+      },
+      {
+        "frame": 118,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 119,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 120,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 121,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 122,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 123,
+        "probability": 0.9923043847084045,
+        "segment": 1
+      },
+      {
+        "frame": 124,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 125,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 126,
+        "probability": 0.9999878406524658,
+        "segment": 1
+      },
+      {
+        "frame": 127,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 128,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 129,
+        "probability": 0.9999957084655762,
+        "segment": 1
+      },
+      {
+        "frame": 130,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 131,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 132,
+        "probability": 0.9999983310699463,
+        "segment": 1
+      },
+      {
+        "frame": 133,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 134,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 135,
+        "probability": 0.9998427629470825,
+        "segment": 1
+      },
+      {
+        "frame": 136,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 137,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 138,
+        "probability": 0.9999068975448608,
+        "segment": 1
+      },
+      {
+        "frame": 139,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 140,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 141,
+        "probability": 0.9999508857727051,
+        "segment": 1
+      },
+      {
+        "frame": 142,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 143,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 144,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 145,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 146,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 147,
+        "probability": 0.9829546809196472,
+        "segment": 1
+      },
+      {
+        "frame": 148,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 149,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 150,
+        "probability": 0.9999923706054688,
+        "segment": 1
+      },
+      {
+        "frame": 151,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 152,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 153,
+        "probability": 0.9999998807907104,
+        "segment": 1
+      },
+      {
+        "frame": 154,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 155,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 156,
+        "probability": 0.9999998807907104,
+        "segment": 1
+      },
+      {
+        "frame": 157,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 158,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 159,
+        "probability": 0.9999997615814209,
+        "segment": 1
+      },
+      {
+        "frame": 160,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 161,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 162,
+        "probability": 0.9999997615814209,
+        "segment": 1
+      },
+      {
+        "frame": 163,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 164,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 165,
+        "probability": 0.9999994039535522,
+        "segment": 1
+      },
+      {
+        "frame": 166,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 167,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 168,
+        "probability": 0.9999994039535522,
+        "segment": 1
+      },
+      {
+        "frame": 169,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 170,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 171,
+        "probability": 1.0,
+        "segment": 1
+      },
+      {
+        "frame": 172,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 173,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 174,
+        "probability": 1.0,
+        "segment": 1
+      },
+      {
+        "frame": 175,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 176,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 177,
+        "probability": 1.0,
+        "segment": 1
+      },
+      {
+        "frame": 178,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 179,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 180,
+        "probability": 1.0,
+        "segment": 1
+      },
+      {
+        "frame": 181,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 182,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 183,
+        "probability": 1.0,
+        "segment": 1
+      },
+      {
+        "frame": 184,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 185,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 186,
+        "probability": 1.0,
+        "segment": 1
+      },
+      {
+        "frame": 187,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 188,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 189,
+        "probability": 0.9999997615814209,
+        "segment": 1
+      }
+    ],
+    "segments_summary": {
+      "total_segments": 1,
+      "segments": [
+        {
+          "segment_number": 1,
+          "start_frame": 99,
+          "end_frame": 189,
+          "size": 91
+        }
+      ]
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_11-05-27.mp4": {
+    "total_frames": 139,
+    "frames_processed": 46,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-48-49.mp4": {
+    "total_frames": 90,
+    "frames_processed": 30,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_08-07-22.mp4": {
+    "total_frames": 384,
+    "frames_processed": 128,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_12-30-26.mp4": {
+    "total_frames": 122,
+    "frames_processed": 41,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_03-43-38.mp4": {
+    "total_frames": 177,
+    "frames_processed": 59,
+    "fish_frames": [
+      {
+        "frame": 81,
+        "probability": 0.9999206066131592,
+        "segment": 1
+      },
+      {
+        "frame": 82,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 83,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 84,
+        "probability": 0.9966885447502136,
+        "segment": 1
+      },
+      {
+        "frame": 85,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 86,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 87,
+        "probability": 0.9994252920150757,
+        "segment": 1
+      },
+      {
+        "frame": 88,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 89,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 90,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 91,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 92,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 93,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 94,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 95,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 96,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 97,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 98,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 99,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 100,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 101,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 102,
+        "probability": 0.9996659755706787,
+        "segment": 1
+      },
+      {
+        "frame": 103,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 104,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 105,
+        "probability": 0.9999880790710449,
+        "segment": 1
+      },
+      {
+        "frame": 106,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 107,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 108,
+        "probability": 0.9999988079071045,
+        "segment": 1
+      },
+      {
+        "frame": 109,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 110,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 111,
+        "probability": 0.999998927116394,
+        "segment": 1
+      },
+      {
+        "frame": 112,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 113,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 114,
+        "probability": 0.9999996423721313,
+        "segment": 1
+      },
+      {
+        "frame": 115,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 116,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 117,
+        "probability": 0.9999995231628418,
+        "segment": 1
+      },
+      {
+        "frame": 118,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 119,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 120,
+        "probability": 0.9999980926513672,
+        "segment": 1
+      },
+      {
+        "frame": 121,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 122,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 123,
+        "probability": 0.9999979734420776,
+        "segment": 1
+      },
+      {
+        "frame": 124,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 125,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 126,
+        "probability": 0.9999816417694092,
+        "segment": 1
+      },
+      {
+        "frame": 127,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 128,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 129,
+        "probability": 0.9999970197677612,
+        "segment": 1
+      },
+      {
+        "frame": 130,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 131,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 132,
+        "probability": 0.9999794960021973,
+        "segment": 1
+      },
+      {
+        "frame": 133,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 134,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 135,
+        "probability": 0.9999076128005981,
+        "segment": 1
+      },
+      {
+        "frame": 136,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 137,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 138,
+        "probability": 0.9998915195465088,
+        "segment": 1
+      },
+      {
+        "frame": 139,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 140,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 141,
+        "probability": 0.9996359348297119,
+        "segment": 1
+      },
+      {
+        "frame": 142,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 143,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 144,
+        "probability": 0.9999788999557495,
+        "segment": 1
+      },
+      {
+        "frame": 145,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 146,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 147,
+        "probability": 0.9997958540916443,
+        "segment": 1
+      }
+    ],
+    "segments_summary": {
+      "total_segments": 1,
+      "segments": [
+        {
+          "segment_number": 1,
+          "start_frame": 81,
+          "end_frame": 147,
+          "size": 67
+        }
+      ]
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-32-40.mp4": {
+    "total_frames": 122,
+    "frames_processed": 41,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-15-29.mp4": {
+    "total_frames": 145,
+    "frames_processed": 48,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-28-25.mp4": {
+    "total_frames": 379,
+    "frames_processed": 127,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_22-27-25.mp4": {
+    "total_frames": 135,
+    "frames_processed": 45,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-23-54.mp4": {
+    "total_frames": 120,
+    "frames_processed": 40,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-51-33.mp4": {
+    "total_frames": 144,
+    "frames_processed": 48,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_23-55-00.mp4": {
+    "total_frames": 127,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_12-51-09.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-10-32.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-48-17.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-58-27.mp4": {
+    "total_frames": 121,
+    "frames_processed": 40,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-19-03.mp4": {
+    "total_frames": 127,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-28-18.mp4": {
+    "total_frames": 125,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-44-36.mp4": {
+    "total_frames": 122,
+    "frames_processed": 41,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_06-53-21.mp4": {
+    "total_frames": 392,
+    "frames_processed": 131,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_07-36-21.mp4": {
+    "total_frames": 392,
+    "frames_processed": 131,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_08-53-00.mp4": {
+    "total_frames": 137,
+    "frames_processed": 46,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-05-28.mp4": {
+    "total_frames": 121,
+    "frames_processed": 40,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-32-51.mp4": {
+    "total_frames": 109,
+    "frames_processed": 36,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-15-39.mp4": {
+    "total_frames": 80,
+    "frames_processed": 27,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-48-29.mp4": {
+    "total_frames": 151,
+    "frames_processed": 51,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_19-28-47.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-05-15.mp4": {
+    "total_frames": 128,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-32-43.mp4": {
+    "total_frames": 128,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_20-06-52.mp4": {
+    "total_frames": 121,
+    "frames_processed": 40,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-13-34.mp4": {
+    "total_frames": 128,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-58-15.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_22-43-31.mp4": {
+    "total_frames": 120,
+    "frames_processed": 40,
+    "fish_frames": [
+      {
+        "frame": 99,
+        "probability": 0.9973061084747314,
+        "segment": 1
+      },
+      {
+        "frame": 100,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 101,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 102,
+        "probability": 0.984752357006073,
+        "segment": 1
+      },
+      {
+        "frame": 103,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 104,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 105,
+        "probability": 0.9985505938529968,
+        "segment": 1
+      },
+      {
+        "frame": 106,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 107,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 108,
+        "probability": 0.999555766582489,
+        "segment": 1
+      }
+    ],
+    "segments_summary": {
+      "total_segments": 1,
+      "segments": [
+        {
+          "segment_number": 1,
+          "start_frame": 99,
+          "end_frame": 108,
+          "size": 10
+        }
+      ]
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-39-39.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-14-48.mp4": {
+    "total_frames": 130,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-33-22.mp4": {
+    "total_frames": 124,
+    "frames_processed": 41,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-59-01.mp4": {
+    "total_frames": 124,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-33-37.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-44-06.mp4": {
+    "total_frames": 132,
+    "frames_processed": 44,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_07-07-27.mp4": {
+    "total_frames": 386,
+    "frames_processed": 129,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_12-41-01.mp4": {
+    "total_frames": 127,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_01-45-29.mp4": {
+    "total_frames": 383,
+    "frames_processed": 128,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-52-36.mp4": {
+    "total_frames": 122,
+    "frames_processed": 41,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_11-49-44.mp4": {
+    "total_frames": 102,
+    "frames_processed": 34,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_22-36-47.mp4": {
+    "total_frames": 168,
+    "frames_processed": 56,
+    "fish_frames": [
+      {
+        "frame": 99,
+        "probability": 0.9984869956970215,
+        "segment": 1
+      },
+      {
+        "frame": 100,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 101,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 102,
+        "probability": 0.9999524354934692,
+        "segment": 1
+      },
+      {
+        "frame": 103,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 104,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 105,
+        "probability": 0.9999774694442749,
+        "segment": 1
+      },
+      {
+        "frame": 106,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 107,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 108,
+        "probability": 0.9999959468841553,
+        "segment": 1
+      },
+      {
+        "frame": 109,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 110,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 111,
+        "probability": 0.9999978542327881,
+        "segment": 1
+      },
+      {
+        "frame": 112,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 113,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 114,
+        "probability": 0.999958872795105,
+        "segment": 1
+      },
+      {
+        "frame": 115,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 116,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 117,
+        "probability": 0.9999898672103882,
+        "segment": 1
+      },
+      {
+        "frame": 118,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 119,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 120,
+        "probability": 0.9999921321868896,
+        "segment": 1
+      },
+      {
+        "frame": 121,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 122,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 123,
+        "probability": 0.9999986886978149,
+        "segment": 1
+      },
+      {
+        "frame": 124,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 125,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 126,
+        "probability": 0.9999934434890747,
+        "segment": 1
+      },
+      {
+        "frame": 127,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 128,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 129,
+        "probability": 0.99997878074646,
+        "segment": 1
+      },
+      {
+        "frame": 130,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 131,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 132,
+        "probability": 0.9998984336853027,
+        "segment": 1
+      }
+    ],
+    "segments_summary": {
+      "total_segments": 1,
+      "segments": [
+        {
+          "segment_number": 1,
+          "start_frame": 99,
+          "end_frame": 132,
+          "size": 34
+        }
+      ]
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-24-46.mp4": {
+    "total_frames": 125,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-05-36.mp4": {
+    "total_frames": 145,
+    "frames_processed": 48,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-48-35.mp4": {
+    "total_frames": 30,
+    "frames_processed": 10,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_13-41-48.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_22-44-15.mp4": {
+    "total_frames": 354,
+    "frames_processed": 118,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-03-56.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_19-32-59.mp4": {
+    "total_frames": 132,
+    "frames_processed": 44,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_22-43-53.mp4": {
+    "total_frames": 247,
+    "frames_processed": 82,
+    "fish_frames": [
+      {
+        "frame": 0,
+        "probability": 0.9999970197677612,
+        "segment": 1
+      },
+      {
+        "frame": 1,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 2,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 3,
+        "probability": 0.9999662637710571,
+        "segment": 1
+      },
+      {
+        "frame": 4,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 5,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 6,
+        "probability": 0.9999873638153076,
+        "segment": 1
+      },
+      {
+        "frame": 7,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 8,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 9,
+        "probability": 0.9995986819267273,
+        "segment": 1
+      },
+      {
+        "frame": 10,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 11,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 12,
+        "probability": 0.9992327690124512,
+        "segment": 1
+      },
+      {
+        "frame": 13,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 14,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 15,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 16,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 17,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 18,
+        "probability": 0.9967523813247681,
+        "segment": 1
+      },
+      {
+        "frame": 19,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 20,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 21,
+        "probability": 0.9998252987861633,
+        "segment": 1
+      },
+      {
+        "frame": 22,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 23,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 24,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 25,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 26,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 27,
+        "probability": 0.9971327781677246,
+        "segment": 1
+      },
+      {
+        "frame": 28,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 29,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 30,
+        "probability": 0.9997774958610535,
+        "segment": 1
+      },
+      {
+        "frame": 31,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 32,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 33,
+        "probability": 0.9991573095321655,
+        "segment": 1
+      },
+      {
+        "frame": 34,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 35,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 36,
+        "probability": 0.9993880987167358,
+        "segment": 1
+      },
+      {
+        "frame": 37,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 38,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 39,
+        "probability": 0.9999854564666748,
+        "segment": 1
+      },
+      {
+        "frame": 40,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 41,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 42,
+        "probability": 0.9997974038124084,
+        "segment": 1
+      },
+      {
+        "frame": 43,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 44,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 45,
+        "probability": 0.9999719858169556,
+        "segment": 1
+      },
+      {
+        "frame": 46,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 47,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 48,
+        "probability": 0.9990149736404419,
+        "segment": 1
+      },
+      {
+        "frame": 49,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 50,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 51,
+        "probability": 0.9997867941856384,
+        "segment": 1
+      },
+      {
+        "frame": 52,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 53,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 54,
+        "probability": 0.9997918009757996,
+        "segment": 1
+      },
+      {
+        "frame": 55,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 56,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 57,
+        "probability": 0.9998595714569092,
+        "segment": 1
+      },
+      {
+        "frame": 58,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 59,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 60,
+        "probability": 0.9999101161956787,
+        "segment": 1
+      },
+      {
+        "frame": 61,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 62,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 63,
+        "probability": 0.9999490976333618,
+        "segment": 1
+      },
+      {
+        "frame": 64,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 65,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 66,
+        "probability": 0.9999954700469971,
+        "segment": 1
+      },
+      {
+        "frame": 67,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 68,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 69,
+        "probability": 0.9999990463256836,
+        "segment": 1
+      },
+      {
+        "frame": 70,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 71,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 72,
+        "probability": 0.9999955892562866,
+        "segment": 1
+      },
+      {
+        "frame": 73,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 74,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 75,
+        "probability": 0.9999960660934448,
+        "segment": 1
+      },
+      {
+        "frame": 76,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 77,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 78,
+        "probability": 0.9999802112579346,
+        "segment": 1
+      },
+      {
+        "frame": 79,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 80,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 81,
+        "probability": 0.9999946355819702,
+        "segment": 1
+      },
+      {
+        "frame": 82,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 83,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 84,
+        "probability": 0.9999847412109375,
+        "segment": 1
+      },
+      {
+        "frame": 85,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 86,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 87,
+        "probability": 0.9999921321868896,
+        "segment": 1
+      },
+      {
+        "frame": 88,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 89,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 90,
+        "probability": 0.9999473094940186,
+        "segment": 1
+      },
+      {
+        "frame": 91,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 92,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 93,
+        "probability": 0.9998867511749268,
+        "segment": 1
+      },
+      {
+        "frame": 94,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 95,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 96,
+        "probability": 0.999276340007782,
+        "segment": 1
+      },
+      {
+        "frame": 97,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 98,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 99,
+        "probability": 0.9980276226997375,
+        "segment": 1
+      },
+      {
+        "frame": 100,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 101,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 102,
+        "probability": 0.9934101700782776,
+        "segment": 1
+      },
+      {
+        "frame": 103,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 104,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 105,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 106,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 107,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 108,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 109,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 110,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 111,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 112,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 113,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 114,
+        "probability": 0.9957684278488159,
+        "segment": 1
+      },
+      {
+        "frame": 115,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 116,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 117,
+        "probability": 0.9999103546142578,
+        "segment": 1
+      },
+      {
+        "frame": 118,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 119,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 120,
+        "probability": 0.9997387528419495,
+        "segment": 1
+      },
+      {
+        "frame": 121,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 122,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 123,
+        "probability": 0.9832144975662231,
+        "segment": 1
+      },
+      {
+        "frame": 124,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 125,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 126,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 127,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 128,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 129,
+        "probability": 0.9999068975448608,
+        "segment": 1
+      },
+      {
+        "frame": 130,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 131,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 132,
+        "probability": 0.9999977350234985,
+        "segment": 1
+      },
+      {
+        "frame": 133,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 134,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 135,
+        "probability": 0.9999086856842041,
+        "segment": 1
+      },
+      {
+        "frame": 136,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 137,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 138,
+        "probability": 0.9999738931655884,
+        "segment": 1
+      },
+      {
+        "frame": 139,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 140,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 141,
+        "probability": 0.9999434947967529,
+        "segment": 1
+      },
+      {
+        "frame": 142,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 143,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 144,
+        "probability": 0.9999891519546509,
+        "segment": 1
+      },
+      {
+        "frame": 145,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 146,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 147,
+        "probability": 0.9999821186065674,
+        "segment": 1
+      },
+      {
+        "frame": 148,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 149,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 150,
+        "probability": 0.9999760389328003,
+        "segment": 1
+      },
+      {
+        "frame": 151,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 152,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 153,
+        "probability": 0.9999691247940063,
+        "segment": 1
+      },
+      {
+        "frame": 154,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 155,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 156,
+        "probability": 0.9999988079071045,
+        "segment": 1
+      },
+      {
+        "frame": 157,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 158,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 159,
+        "probability": 0.9999948740005493,
+        "segment": 1
+      },
+      {
+        "frame": 160,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 161,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 162,
+        "probability": 0.9999632835388184,
+        "segment": 1
+      },
+      {
+        "frame": 163,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 164,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 165,
+        "probability": 0.9999984502792358,
+        "segment": 1
+      },
+      {
+        "frame": 166,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 167,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 168,
+        "probability": 0.9999585151672363,
+        "segment": 1
+      },
+      {
+        "frame": 169,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 170,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 171,
+        "probability": 0.9994946718215942,
+        "segment": 1
+      },
+      {
+        "frame": 172,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 173,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 174,
+        "probability": 0.9999538660049438,
+        "segment": 1
+      },
+      {
+        "frame": 175,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 176,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 177,
+        "probability": 0.9999781847000122,
+        "segment": 1
+      },
+      {
+        "frame": 178,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 179,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 180,
+        "probability": 0.9999955892562866,
+        "segment": 1
+      },
+      {
+        "frame": 181,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 182,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 183,
+        "probability": 0.9999891519546509,
+        "segment": 1
+      },
+      {
+        "frame": 184,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 185,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 186,
+        "probability": 0.9999445676803589,
+        "segment": 1
+      },
+      {
+        "frame": 187,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 188,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 189,
+        "probability": 0.9999665021896362,
+        "segment": 1
+      },
+      {
+        "frame": 190,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 191,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 192,
+        "probability": 0.999996542930603,
+        "segment": 1
+      },
+      {
+        "frame": 193,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 194,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 195,
+        "probability": 0.9999635219573975,
+        "segment": 1
+      },
+      {
+        "frame": 196,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 197,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 198,
+        "probability": 0.9999964237213135,
+        "segment": 1
+      },
+      {
+        "frame": 199,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 200,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 201,
+        "probability": 0.9995875954627991,
+        "segment": 1
+      },
+      {
+        "frame": 202,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 203,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 204,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 205,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 206,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 207,
+        "probability": 0.999934196472168,
+        "segment": 1
+      },
+      {
+        "frame": 208,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 209,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 210,
+        "probability": 0.9999374151229858,
+        "segment": 1
+      },
+      {
+        "frame": 211,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 212,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 213,
+        "probability": 0.999823272228241,
+        "segment": 1
+      },
+      {
+        "frame": 214,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 215,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 216,
+        "probability": 0.999956488609314,
+        "segment": 1
+      },
+      {
+        "frame": 217,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 218,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 219,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 220,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 221,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 222,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 223,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 224,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 225,
+        "probability": 0.9947799444198608,
+        "segment": 1
+      },
+      {
+        "frame": 226,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 227,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 228,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 229,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 230,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 231,
+        "probability": 0.9930961728096008,
+        "segment": 1
+      }
+    ],
+    "segments_summary": {
+      "total_segments": 1,
+      "segments": [
+        {
+          "segment_number": 1,
+          "start_frame": 0,
+          "end_frame": 231,
+          "size": 232
+        }
+      ]
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_18-01-22.mp4": {
+    "total_frames": 137,
+    "frames_processed": 46,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-09-32.mp4": {
+    "total_frames": 30,
+    "frames_processed": 10,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_12-44-55.mp4": {
+    "total_frames": 132,
+    "frames_processed": 44,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_12-38-01.mp4": {
+    "total_frames": 126,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_15-05-47.mp4": {
+    "total_frames": 91,
+    "frames_processed": 30,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_20-04-12.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-09-30.mp4": {
+    "total_frames": 110,
+    "frames_processed": 37,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-09-19.mp4": {
+    "total_frames": 120,
+    "frames_processed": 40,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-52-35.mp4": {
+    "total_frames": 125,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-55-24.mp4": {
+    "total_frames": 131,
+    "frames_processed": 44,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-21-20.mp4": {
+    "total_frames": 80,
+    "frames_processed": 27,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-42-29.mp4": {
+    "total_frames": 129,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_22-43-40.mp4": {
+    "total_frames": 90,
+    "frames_processed": 30,
+    "fish_frames": [
+      {
+        "frame": 0,
+        "probability": 0.9929881691932678,
+        "segment": 1
+      },
+      {
+        "frame": 1,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 2,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 3,
+        "probability": 0.9940428137779236,
+        "segment": 1
+      },
+      {
+        "frame": 4,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 5,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 6,
+        "probability": 0.9997294545173645,
+        "segment": 1
+      },
+      {
+        "frame": 7,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 8,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 9,
+        "probability": 0.9997809529304504,
+        "segment": 1
+      },
+      {
+        "frame": 10,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 11,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 12,
+        "probability": 0.9999512434005737,
+        "segment": 1
+      },
+      {
+        "frame": 13,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 14,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 15,
+        "probability": 0.9958337545394897,
+        "segment": 1
+      },
+      {
+        "frame": 16,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 17,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 18,
+        "probability": 0.9899086952209473,
+        "segment": 1
+      },
+      {
+        "frame": 19,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 20,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 21,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 22,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 23,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 24,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 25,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 26,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 27,
+        "probability": 0.9965969920158386,
+        "segment": 1
+      },
+      {
+        "frame": 28,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 29,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 30,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 31,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 32,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 33,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 34,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 35,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 36,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 37,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 38,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 39,
+        "probability": 0.999220609664917,
+        "segment": 1
+      },
+      {
+        "frame": 40,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 41,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 42,
+        "probability": 0.9999079704284668,
+        "segment": 1
+      },
+      {
+        "frame": 43,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 44,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 45,
+        "probability": 0.9969005584716797,
+        "segment": 1
+      },
+      {
+        "frame": 46,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 47,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 48,
+        "probability": 0.999045193195343,
+        "segment": 1
+      },
+      {
+        "frame": 49,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 50,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 51,
+        "probability": 0.9986435770988464,
+        "segment": 1
+      },
+      {
+        "frame": 52,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 53,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 54,
+        "probability": 0.9999148845672607,
+        "segment": 1
+      },
+      {
+        "frame": 55,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 56,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 57,
+        "probability": 0.9999489784240723,
+        "segment": 1
+      },
+      {
+        "frame": 58,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 59,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 60,
+        "probability": 0.999976396560669,
+        "segment": 1
+      },
+      {
+        "frame": 61,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 62,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 63,
+        "probability": 0.9999688863754272,
+        "segment": 1
+      },
+      {
+        "frame": 64,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 65,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 66,
+        "probability": 0.9986329674720764,
+        "segment": 1
+      },
+      {
+        "frame": 67,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 68,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 69,
+        "probability": 0.9999939203262329,
+        "segment": 1
+      },
+      {
+        "frame": 70,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 71,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 72,
+        "probability": 0.9999959468841553,
+        "segment": 1
+      },
+      {
+        "frame": 73,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 74,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 75,
+        "probability": 0.9999977350234985,
+        "segment": 1
+      },
+      {
+        "frame": 76,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 77,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 78,
+        "probability": 0.9999992847442627,
+        "segment": 1
+      },
+      {
+        "frame": 79,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 80,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 81,
+        "probability": 0.9999983310699463,
+        "segment": 1
+      },
+      {
+        "frame": 82,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 83,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 84,
+        "probability": 0.9999986886978149,
+        "segment": 1
+      },
+      {
+        "frame": 85,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 86,
+        "probability": null,
+        "segment": 1
+      },
+      {
+        "frame": 87,
+        "probability": 0.9999933242797852,
+        "segment": 1
+      }
+    ],
+    "segments_summary": {
+      "total_segments": 1,
+      "segments": [
+        {
+          "segment_number": 1,
+          "start_frame": 0,
+          "end_frame": 87,
+          "size": 88
+        }
+      ]
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_14-48-40.mp4": {
+    "total_frames": 50,
+    "frames_processed": 17,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_08-29-49.mp4": {
+    "total_frames": 389,
+    "frames_processed": 130,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_03-45-34.mp4": {
+    "total_frames": 385,
+    "frames_processed": 129,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-24-33.mp4": {
+    "total_frames": 70,
+    "frames_processed": 23,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_11-29-48.mp4": {
+    "total_frames": 131,
+    "frames_processed": 44,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_09-16-31.mp4": {
+    "total_frames": 128,
+    "frames_processed": 43,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  },
+  "data/14_08_2025/1_2025-08-14_17-24-26.mp4": {
+    "total_frames": 127,
+    "frames_processed": 42,
+    "fish_frames": [],
+    "segments_summary": {
+      "total_segments": 0,
+      "segments": []
+    }
+  }
+}

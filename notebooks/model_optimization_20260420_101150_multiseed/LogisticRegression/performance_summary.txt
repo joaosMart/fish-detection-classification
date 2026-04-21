@@ -1,0 +1,10 @@
+Best Model Configuration
+==================================================
+
+Parameters:
+C: 154.74774437658576
+class_weight: None
+
+Cross-validation Performance:
+Best CV Score (Macro F1): 0.9651 ± 0.0083
+CV Training Score: 0.9846 ± 0.0014
