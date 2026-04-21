@@ -2,3 +2,5 @@ fish_env
 .vscode
 .DS_Store
 .Rhistory
+data/
+output/
