@@ -82,11 +82,7 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
             single_detections.append({
                 "frame": frame,
                 "time": round(frame / fps, 2),
-<<<<<<< HEAD
-                "probability": round(det["probability"], 4),
-=======
                 "probability": round(det.get("probability") or 0.0, 4),
->>>>>>> segment-identification
             })
 
         # Build multi detections
@@ -97,11 +93,6 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
             multi_detections.append({
                 "frame": frame,
                 "time": round(frame / fps, 2),
-<<<<<<< HEAD
-                "probability": round(det["probability"], 4),
-            })
-
-=======
                 "probability": round(det.get("probability") or 0.0, 4),
             })
 
@@ -119,16 +110,12 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
                     "size": seg["size"],
                 })
 
->>>>>>> segment-identification
         videos[video_name] = {
             "duration": round(duration, 2),
             "fps": round(fps, 1),
             "single_detections": single_detections,
             "multi_detections": multi_detections,
-<<<<<<< HEAD
-=======
             "segments": segments,
->>>>>>> segment-identification
             "source_path": video_path_str,
         }
 
@@ -145,7 +132,8 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
 
 def build_output(session_dir: Path, viewer_data: Dict) -> Path:
     """
-    Copy videos, viewer app, and viewer_data.json into an output directory.
+    Prepare viewer app files and viewer_data.json in the output directory.
+    Videos are served directly from their original locations (no copying).
     Returns the output directory path.
     """
     output_dir = session_dir / "viewer_app"
@@ -164,21 +152,6 @@ def build_output(session_dir: Path, viewer_data: Dict) -> Path:
     with open(output_dir / "viewer_data.json", "w") as f:
         json.dump(viewer_data, f, indent=2)
 
-    # Copy videos
-    videos_dir = output_dir / "videos"
-    videos_dir.mkdir(exist_ok=True)
-    copied = 0
-    for video_name, vdata in viewer_data["videos"].items():
-        src_path = Path(vdata["source_path"])
-        dst_path = videos_dir / video_name
-        if src_path.exists() and not dst_path.exists():
-            print(f"  Copying {video_name}...")
-            shutil.copy2(src_path, dst_path)
-            copied += 1
-        elif dst_path.exists():
-            print(f"  {video_name} already copied, skipping.")
-
-    print(f"Copied {copied} new video(s) to {videos_dir}")
     return output_dir
 
 
@@ -195,14 +168,36 @@ def find_available_port(start: int = 8000) -> int:
 
 
 def start_server(directory: Path, port: int):
-    """Start HTTP server serving from directory."""
+    """Start HTTP server serving from directory, with video proxying from original paths."""
+    project_root = Path(__file__).parent.resolve()
     os.chdir(directory)
 
-    class QuietHandler(SimpleHTTPRequestHandler):
+    class ViewerHandler(SimpleHTTPRequestHandler):
         def log_message(self, format, *args):
             pass
 
-    server = HTTPServer(("localhost", port), QuietHandler)
+        def do_GET(self):
+            if self.path.startswith("/serve-video?path="):
+                from urllib.parse import unquote, urlparse, parse_qs
+                parsed = urlparse(self.path)
+                params = parse_qs(parsed.query)
+                video_path = unquote(params.get("path", [""])[0])
+                # Resolve relative paths against the project root
+                if video_path and not os.path.isabs(video_path):
+                    video_path = str(project_root / video_path)
+                if not video_path or not os.path.isfile(video_path):
+                    self.send_error(404, "Video not found")
+                    return
+                self.send_response(200)
+                self.send_header("Content-Type", "video/mp4")
+                self.send_header("Content-Length", str(os.path.getsize(video_path)))
+                self.end_headers()
+                with open(video_path, "rb") as f:
+                    shutil.copyfileobj(f, self.wfile)
+                return
+            super().do_GET()
+
+    server = HTTPServer(("localhost", port), ViewerHandler)
     server.serve_forever()
 
 

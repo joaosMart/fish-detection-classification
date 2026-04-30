@@ -231,7 +231,7 @@ class FishDetector:
             # Extract fish frame indices for each video
             fish_frames_by_video = {}
             for video_path, results in single_results.items():
-                fish_frame_indices = [frame_info['frame'] for frame_info in results['fish_frames']]
+                fish_frame_indices = [frame_info['frame'] for frame_info in results['fish_frames'] if frame_info['probability'] is not None]
                 fish_frames_by_video[video_path] = fish_frame_indices
                 
             print(f"Loaded single fish detection results for {len(fish_frames_by_video)} videos")
@@ -417,18 +417,18 @@ class FishDetector:
         if self.detection_type == "multi":
             # Handle multi-fish results (frame_idx, [no_fish_prob, fish_prob])
             for video_path, frame_data in scores.items():
-                fish_frames = []
-                
+                # Collect all frames above threshold
+                candidate_frames = []
                 for frame_idx, (no_fish_prob, fish_prob) in frame_data:
                     if fish_prob >= self.threshold:
-                        fish_frames.append({
+                        candidate_frames.append({
                             "frame": frame_idx,
                             "probability": fish_prob
                         })
-                
+
                 filtered_results[video_path] = {
                     "total_frames_analyzed": len(frame_data),
-                    "multi_fish_frames": fish_frames
+                    "multi_fish_frames": candidate_frames
                 }
         
         else:  # Single fish detection
@@ -507,8 +507,6 @@ class FishDetector:
         print(f"  - Filtered results: {self.results_file}")
         print(f"  - Session output directory: {self.output_dir}")
     
-<<<<<<< HEAD
-=======
     def identify_segments(self, filtered_results: Dict[str, Dict]) -> Dict[str, Dict]:
         """Identify fish segments in filtered results.
 
@@ -521,8 +519,10 @@ class FishDetector:
         """
         from segment_utils import find_segments
 
+        frames_key = 'multi_fish_frames' if self.detection_type == 'multi' else 'fish_frames'
+
         for video_path, data in filtered_results.items():
-            fish_frames = data.get('fish_frames', [])
+            fish_frames = data.get(frames_key, [])
 
             if not fish_frames:
                 data['segments_summary'] = {'total_segments': 0, 'segments': []}
@@ -553,7 +553,7 @@ class FishDetector:
                     'size': seg['size'],
                 })
 
-            data['fish_frames'] = enriched_frames
+            data[frames_key] = enriched_frames
             data['segments_summary'] = {
                 'total_segments': len(segments),
                 'segments': segments_summary,
@@ -566,24 +566,10 @@ class FishDetector:
         print(f"Segment identification complete. Results updated in: {self.results_file}")
         return filtered_results
 
->>>>>>> segment-identification
     def run(self, video_files: List[str]):
         """Run the complete fish detection pipeline"""
         print(f"Starting {self.detection_type.upper()} Fish Detection...")
         print(f"Videos to process: {len(video_files)}")
-<<<<<<< HEAD
-        
-        # Process videos
-        scores = self.analyze_videos(video_files)
-        
-        if not scores:
-            print("No videos were successfully processed!")
-            return
-        
-        # Filter results
-        results = self.filter_results(scores)
-        
-=======
 
         # Process videos
         scores = self.analyze_videos(video_files)
@@ -595,11 +581,9 @@ class FishDetector:
         # Filter results
         results = self.filter_results(scores)
 
-        # Identify segments (single fish detection only)
-        if self.detection_type == "single":
-            results = self.identify_segments(results)
+        # Identify segments
+        results = self.identify_segments(results)
 
->>>>>>> segment-identification
         # Print summary
         self.print_summary(results)
 

@@ -145,7 +145,7 @@
         currentVideoName = videoName;
         var vdata = viewerData.videos[videoName];
 
-        videoPlayer.src = "videos/" + videoName;
+        videoPlayer.src = "/serve-video?path=" + encodeURIComponent(vdata.source_path);
         playerOverlay.classList.add("hidden");
 
         currentDetections = [];
