@@ -1,5 +1,5 @@
 import pytest
-from fish_detection.feature_extraction import select_best_window
+from fish_detection.feature_extraction import select_best_window, filter_videos
 
 
 class TestSelectBestWindow:
@@ -48,3 +48,72 @@ class TestSelectBestWindow:
         ]
         result = select_best_window(frames, window_size=11)
         assert result == list(range(0, 11))
+
+
+class TestFilterVideos:
+    def test_excludes_videos_with_multi_fish(self):
+        """Videos with multi-fish frames are excluded."""
+        frames1 = [
+            {"frame": i, "probability": None, "segment": 1}
+            for i in range(20)
+        ]
+        frames2 = [
+            {"frame": i, "probability": None, "segment": 1}
+            for i in range(20)
+        ]
+        detection = {
+            "vid1.mp4": {
+                "fish_frames": frames1,
+                "segments_summary": {"total_segments": 1, "segments": [
+                    {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20}
+                ]},
+            },
+            "vid2.mp4": {
+                "fish_frames": frames2,
+                "segments_summary": {"total_segments": 1, "segments": [
+                    {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20}
+                ]},
+            },
+        }
+        multi_fish = {
+            "vid1.mp4": {"multi_fish_frames": []},
+            "vid2.mp4": {"multi_fish_frames": [{"frame": 5}]},
+        }
+        result = filter_videos(detection, multi_fish)
+        assert list(result.keys()) == ["vid1.mp4"]
+
+    def test_excludes_segments_shorter_than_11(self):
+        """Segments with fewer than 11 frames are excluded."""
+        detection = {
+            "vid1.mp4": {
+                "fish_frames": [
+                    {"frame": i, "probability": 0.99 if i % 3 == 0 else None, "segment": 1}
+                    for i in range(5)
+                ],
+                "segments_summary": {"total_segments": 1, "segments": [
+                    {"segment_number": 1, "start_frame": 0, "end_frame": 4, "size": 5}
+                ]},
+            },
+        }
+        multi_fish = {"vid1.mp4": {"multi_fish_frames": []}}
+        result = filter_videos(detection, multi_fish)
+        assert result == {}
+
+    def test_keeps_valid_segments(self):
+        """Videos with valid segments (no multi-fish, >= 11 frames) are kept."""
+        frames = [
+            {"frame": i, "probability": 0.99 if i % 3 == 0 else None, "segment": 1}
+            for i in range(20)
+        ]
+        detection = {
+            "vid1.mp4": {
+                "fish_frames": frames,
+                "segments_summary": {"total_segments": 1, "segments": [
+                    {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20}
+                ]},
+            },
+        }
+        multi_fish = {"vid1.mp4": {"multi_fish_frames": []}}
+        result = filter_videos(detection, multi_fish)
+        assert "vid1.mp4" in result
+        assert len(result["vid1.mp4"]) == 1
