@@ -233,8 +233,14 @@ def classify_date_folder(
             skipped += 1
             continue
 
+        SPECIES_LABELS = ["Bleikja", "Lax", "Urriði"]
+
         avg_features = data["averaged_features"].reshape(1, -1)
         prediction = model.predict(avg_features)[0]
+
+        # Map numeric label to species name if needed
+        if isinstance(prediction, (int, np.integer)):
+            prediction = SPECIES_LABELS[prediction]
 
         data["fish_species"] = np.str_(prediction)
         np.savez(str(npz_path), **data)
