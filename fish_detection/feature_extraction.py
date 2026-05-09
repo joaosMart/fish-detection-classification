@@ -50,6 +50,32 @@ def select_best_window(
     return [segment_frames[best_start + i]["frame"] for i in range(window_size)]
 
 
+def _find_multi_fish_segments(multi_fish_frames: List[Dict], min_run: int = 11) -> List[set]:
+    """Find runs of consecutive multi-fish frames >= min_run length.
+
+    Returns a list of sets, each containing frame numbers in a multi-fish run.
+    """
+    if not multi_fish_frames:
+        return []
+
+    frames = sorted(f["frame"] for f in multi_fish_frames)
+    runs = []
+    current_run = [frames[0]]
+
+    for i in range(1, len(frames)):
+        if frames[i] <= frames[i - 1] + 1:
+            current_run.append(frames[i])
+        else:
+            if len(current_run) >= min_run:
+                runs.append(set(current_run))
+            current_run = [frames[i]]
+
+    if len(current_run) >= min_run:
+        runs.append(set(current_run))
+
+    return runs
+
+
 def filter_videos(
     detection_results: Dict[str, Dict],
     multi_fish_results: Dict[str, Dict],
@@ -57,8 +83,8 @@ def filter_videos(
 ) -> Dict[str, List[List[Dict]]]:
     """Filter videos to those with valid single-fish segments.
 
-    Excludes videos with any multi-fish frames. For remaining videos,
-    returns only segments with at least min_segment_size frames.
+    Excludes segments that overlap with multi-fish runs of >= 11 consecutive
+    frames. Also excludes segments shorter than min_segment_size.
 
     Args:
         detection_results: Single-fish detection results keyed by video path.
@@ -73,10 +99,13 @@ def filter_videos(
     valid = {}
 
     for video_path, det in detection_results.items():
-        # Skip if video has multi-fish frames
         multi = multi_fish_results.get(video_path, {})
-        if multi.get("multi_fish_frames"):
-            continue
+        multi_runs = _find_multi_fish_segments(
+            multi.get("multi_fish_frames", []), min_run=min_segment_size
+        )
+        multi_frames = set()
+        for run in multi_runs:
+            multi_frames |= run
 
         # Group fish_frames by segment number
         segments_by_num: Dict[int, List[Dict]] = {}
@@ -86,12 +115,16 @@ def filter_videos(
                 continue
             segments_by_num.setdefault(seg_num, []).append(frame)
 
-        # Filter segments by minimum size
+        # Filter segments by minimum size and multi-fish overlap
         valid_segments = []
         for seg_num in sorted(segments_by_num.keys()):
             seg_frames = sorted(segments_by_num[seg_num], key=lambda f: f["frame"])
-            if len(seg_frames) >= min_segment_size:
-                valid_segments.append(seg_frames)
+            if len(seg_frames) < min_segment_size:
+                continue
+            seg_frame_nums = {f["frame"] for f in seg_frames}
+            if seg_frame_nums & multi_frames:
+                continue
+            valid_segments.append(seg_frames)
 
         if valid_segments:
             valid[video_path] = valid_segments

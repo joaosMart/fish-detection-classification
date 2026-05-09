@@ -53,36 +53,73 @@ class TestSelectBestWindow:
 
 
 class TestFilterVideos:
-    def test_excludes_videos_with_multi_fish(self):
-        """Videos with multi-fish frames are excluded."""
-        frames1 = [
-            {"frame": i, "probability": None, "segment": 1}
-            for i in range(20)
-        ]
-        frames2 = [
+    def test_keeps_segment_with_few_multi_fish(self):
+        """A few scattered multi-fish frames (< 11 consecutive) don't exclude the segment."""
+        frames = [
             {"frame": i, "probability": None, "segment": 1}
             for i in range(20)
         ]
         detection = {
             "vid1.mp4": {
-                "fish_frames": frames1,
-                "segments_summary": {"total_segments": 1, "segments": [
-                    {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20}
-                ]},
-            },
-            "vid2.mp4": {
-                "fish_frames": frames2,
+                "fish_frames": frames,
                 "segments_summary": {"total_segments": 1, "segments": [
                     {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20}
                 ]},
             },
         }
         multi_fish = {
-            "vid1.mp4": {"multi_fish_frames": []},
-            "vid2.mp4": {"multi_fish_frames": [{"frame": 5}]},
+            "vid1.mp4": {"multi_fish_frames": [{"frame": 5}, {"frame": 10}]},
         }
         result = filter_videos(detection, multi_fish)
-        assert list(result.keys()) == ["vid1.mp4"]
+        assert "vid1.mp4" in result
+
+    def test_excludes_segment_overlapping_long_multi_fish_run(self):
+        """Segment overlapping with >= 11 consecutive multi-fish frames is excluded."""
+        frames = [
+            {"frame": i, "probability": None, "segment": 1}
+            for i in range(20)
+        ]
+        detection = {
+            "vid1.mp4": {
+                "fish_frames": frames,
+                "segments_summary": {"total_segments": 1, "segments": [
+                    {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20}
+                ]},
+            },
+        }
+        # 11 consecutive multi-fish frames overlapping with segment
+        multi_fish = {
+            "vid1.mp4": {"multi_fish_frames": [{"frame": i} for i in range(5, 16)]},
+        }
+        result = filter_videos(detection, multi_fish)
+        assert result == {}
+
+    def test_keeps_non_overlapping_segment(self):
+        """Segment that doesn't overlap with a multi-fish run is kept."""
+        frames_seg1 = [
+            {"frame": i, "probability": None, "segment": 1}
+            for i in range(20)
+        ]
+        frames_seg2 = [
+            {"frame": i, "probability": None, "segment": 2}
+            for i in range(50, 70)
+        ]
+        detection = {
+            "vid1.mp4": {
+                "fish_frames": frames_seg1 + frames_seg2,
+                "segments_summary": {"total_segments": 2, "segments": [
+                    {"segment_number": 1, "start_frame": 0, "end_frame": 19, "size": 20},
+                    {"segment_number": 2, "start_frame": 50, "end_frame": 69, "size": 20},
+                ]},
+            },
+        }
+        # Multi-fish run overlaps only segment 1
+        multi_fish = {
+            "vid1.mp4": {"multi_fish_frames": [{"frame": i} for i in range(5, 16)]},
+        }
+        result = filter_videos(detection, multi_fish)
+        assert "vid1.mp4" in result
+        assert len(result["vid1.mp4"]) == 1  # only segment 2 kept
 
     def test_excludes_segments_shorter_than_11(self):
         """Segments with fewer than 11 frames are excluded."""
