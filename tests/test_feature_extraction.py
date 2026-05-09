@@ -1,5 +1,6 @@
 import pytest
-from fish_detection.feature_extraction import select_best_window, filter_videos
+import numpy as np
+from fish_detection.feature_extraction import select_best_window, filter_videos, save_features_npz
 
 
 class TestSelectBestWindow:
@@ -117,3 +118,30 @@ class TestFilterVideos:
         result = filter_videos(detection, multi_fish)
         assert "vid1.mp4" in result
         assert len(result["vid1.mp4"]) == 1
+
+
+class TestSaveFeatures:
+    def test_saves_correct_format(self, tmp_path):
+        """NPZ matches training data format."""
+        features = {
+            10 + i: np.random.randn(1152).astype(np.float32) for i in range(11)
+        }
+        frame_numbers = list(range(10, 21))
+        output_path = tmp_path / "test_features.npz"
+
+        save_features_npz(features, frame_numbers, str(output_path))
+
+        data = np.load(str(output_path), allow_pickle=True)
+        assert set(data.keys()) == {
+            "features", "frame_numbers", "middle_frame",
+            "averaged_features", "fish_species",
+        }
+        assert data["frame_numbers"].tolist() == frame_numbers
+        assert int(data["middle_frame"]) == 15  # frame_numbers[5]
+        assert data["averaged_features"].shape == (1152,)
+        assert str(data["fish_species"]) == ""
+
+        # Check features dict
+        feat_dict = data["features"].item()
+        assert len(feat_dict) == 11
+        assert all(feat_dict[k].shape == (1152,) for k in feat_dict)
