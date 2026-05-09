@@ -1,6 +1,7 @@
 import pytest
 import numpy as np
-from fish_detection.feature_extraction import select_best_window, filter_videos, save_features_npz
+from unittest.mock import MagicMock
+from fish_detection.feature_extraction import select_best_window, filter_videos, save_features_npz, classify_date_folder
 
 
 class TestSelectBestWindow:
@@ -145,3 +146,60 @@ class TestSaveFeatures:
         feat_dict = data["features"].item()
         assert len(feat_dict) == 11
         assert all(feat_dict[k].shape == (1152,) for k in feat_dict)
+
+
+class TestClassifyDateFolder:
+    def test_classifies_and_updates_npz(self, tmp_path):
+        """Loads NPZ, predicts species, re-saves with fish_species set."""
+        features_dir = tmp_path / "06_08_2025"
+        features_dir.mkdir()
+        avg = np.random.randn(1152).astype(np.float32)
+        npz_path = features_dir / "vid1_seg1_features.npz"
+        np.savez(
+            str(npz_path),
+            features=np.array({}, dtype=object),
+            frame_numbers=np.arange(10, 21, dtype=np.int64),
+            middle_frame=np.int64(15),
+            averaged_features=avg,
+            fish_species=np.str_(""),
+        )
+
+        mock_model = MagicMock()
+        mock_model.predict.return_value = np.array(["Lax"])
+
+        classify_date_folder(
+            "06_08_2025",
+            model=mock_model,
+            features_base_dir=str(tmp_path),
+        )
+
+        data = np.load(str(npz_path), allow_pickle=True)
+        assert str(data["fish_species"]) == "Lax"
+        mock_model.predict.assert_called_once()
+        call_args = mock_model.predict.call_args[0][0]
+        assert call_args.shape == (1, 1152)
+
+    def test_skips_already_classified(self, tmp_path):
+        """Files with non-empty fish_species are skipped."""
+        features_dir = tmp_path / "06_08_2025"
+        features_dir.mkdir()
+        avg = np.random.randn(1152).astype(np.float32)
+        npz_path = features_dir / "vid1_seg1_features.npz"
+        np.savez(
+            str(npz_path),
+            features=np.array({}, dtype=object),
+            frame_numbers=np.arange(10, 21, dtype=np.int64),
+            middle_frame=np.int64(15),
+            averaged_features=avg,
+            fish_species=np.str_("Urriði"),
+        )
+
+        mock_model = MagicMock()
+
+        classify_date_folder(
+            "06_08_2025",
+            model=mock_model,
+            features_base_dir=str(tmp_path),
+        )
+
+        mock_model.predict.assert_not_called()

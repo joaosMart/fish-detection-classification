@@ -200,6 +200,48 @@ def save_features_npz(
     )
 
 
+def classify_date_folder(
+    date_folder: str,
+    model,
+    features_base_dir: str = "data/SigLIP_features",
+) -> None:
+    """Classify species for all NPZ files in a date folder.
+
+    Args:
+        date_folder: Date folder name (e.g., '06_08_2025').
+        model: Loaded sklearn model with a predict() method.
+        features_base_dir: Base directory for feature NPZ files.
+    """
+    features_dir = Path(features_base_dir) / date_folder
+    if not features_dir.exists():
+        print(f"Features directory not found: {features_dir}")
+        return
+
+    npz_files = sorted(features_dir.glob("*_features.npz"))
+    if not npz_files:
+        print(f"[{date_folder}] No NPZ files found")
+        return
+
+    classified = 0
+    skipped = 0
+
+    for npz_path in npz_files:
+        data = dict(np.load(str(npz_path), allow_pickle=True))
+
+        if str(data["fish_species"]) != "":
+            skipped += 1
+            continue
+
+        avg_features = data["averaged_features"].reshape(1, -1)
+        prediction = model.predict(avg_features)[0]
+
+        data["fish_species"] = np.str_(prediction)
+        np.savez(str(npz_path), **data)
+        classified += 1
+
+    print(f"[{date_folder}] Classification done: {classified} classified, {skipped} skipped")
+
+
 def process_date_folder(
     date_folder: str,
     detection_dir: str = "output/detection_output",
