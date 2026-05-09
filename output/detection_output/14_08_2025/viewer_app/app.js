@@ -203,7 +203,7 @@
 
             var label = document.createElement("span");
             label.className = "segment-label";
-            label.textContent = "S" + seg.segment_number;
+            label.textContent = "S" + seg.segment_number + ": " + (seg.species || "No Species Predicted");
             band.appendChild(label);
 
             timelineSegments.appendChild(band);
@@ -213,7 +213,7 @@
         var frameToSegment = {};
         segments.forEach(function (seg) {
             for (var f = seg.start_frame; f <= seg.end_frame; f++) {
-                frameToSegment[f] = seg.segment_number;
+                frameToSegment[f] = seg;
             }
         });
 
@@ -224,14 +224,19 @@
             marker.style.left = "calc(" + pct + "% - 5px)";
             marker.dataset.index = idx;
 
-            var segNum = frameToSegment[det.frame];
+            var segInfo = frameToSegment[det.frame];
 
             marker.addEventListener("mouseenter", function (e) {
                 tooltipTime.textContent = "⏱ " + formatTime(det.time);
                 tooltipFrame.textContent = "Frame " + det.frame;
                 tooltipProb.textContent = (det.probability * 100).toFixed(1) + "%";
-                tooltipSegment.textContent = segNum ? "Segment " + segNum : "";
-                tooltipSegment.style.display = segNum ? "block" : "none";
+                if (segInfo) {
+                    tooltipSegment.textContent = "Segment " + segInfo.segment_number + " — " + (segInfo.species || "No Species Predicted");
+                    tooltipSegment.style.display = "block";
+                } else {
+                    tooltipSegment.textContent = "";
+                    tooltipSegment.style.display = "none";
+                }
                 tooltip.style.display = "block";
                 positionTooltip(e);
             });
