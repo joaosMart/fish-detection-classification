@@ -7,6 +7,7 @@ import torch
 import torch.nn.functional as F
 import open_clip
 import cv2
+import joblib
 from PIL import Image
 from pathlib import Path
 from typing import List, Dict, Optional
@@ -328,9 +329,33 @@ def main():
     parser.add_argument("--detection-dir", default="output/detection_output")
     parser.add_argument("--video-dir", default="data")
     parser.add_argument("--output-dir", default="data/SigLIP_features")
+    parser.add_argument("--classify", action="store_true",
+                        help="Run species classification on extracted features")
+    parser.add_argument("--model-path",
+                        default="notebooks/model_optimization_20260420_101150_multiseed/SVM_best_model.joblib",
+                        help="Path to the SVM model joblib file")
     args = parser.parse_args()
 
-    if args.date:
+    if args.classify:
+        if not Path(args.model_path).exists():
+            print(f"Model not found: {args.model_path}")
+            return
+        print(f"Loading model from {args.model_path}...")
+        model = joblib.load(args.model_path)
+
+        if args.date:
+            classify_date_folder(args.date, model, args.output_dir)
+        elif args.all:
+            features_base = Path(args.output_dir)
+            date_folders = sorted([
+                d.name for d in features_base.iterdir() if d.is_dir()
+            ])
+            print(f"Found {len(date_folders)} date folders: {date_folders}")
+            for date_folder in date_folders:
+                classify_date_folder(date_folder, model, args.output_dir)
+        else:
+            print("Specify --date or --all with --classify")
+    elif args.date:
         process_date_folder(args.date, args.detection_dir, args.video_dir, args.output_dir)
     elif args.all:
         detection_base = Path(args.detection_dir)
