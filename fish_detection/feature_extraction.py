@@ -234,26 +234,137 @@ def save_features_npz(
     )
 
 
-def classify_date_folder(
-    date_folder: str,
+SPECIES_LABELS = ["Bleikja", "Lax", "Urriði"]
+
+
+def _read_npz_species(npz_path: Path) -> str:
+    data = np.load(str(npz_path), allow_pickle=True)
+    return str(data["fish_species"])
+
+
+def _read_npz_middle_frame(npz_path: Path) -> Optional[int]:
+    data = np.load(str(npz_path), allow_pickle=True)
+    return int(data["middle_frame"]) if "middle_frame" in data.files else None
+
+
+def write_species_results_json(
+    session: str,
+    detection_dir: str = "output/detection_output",
+    features_base_dir: str = "data/SigLIP_features",
+    output_base_dir: str = "output/species_classification",
+) -> Optional[Path]:
+    """Emit a per-segment species classification JSON for a session.
+
+    Joins detection segments with NPZ species labels. Each segment gets a
+    status: classified, too_short, multi_fish, or not_extracted.
+    """
+    detection_path = Path(detection_dir) / session / "fish_detection" / "results.json"
+    multi_fish_path = Path(detection_dir) / session / "multi_fish" / "results.json"
+    if not detection_path.exists():
+        print(f"Detection results not found: {detection_path}")
+        return None
+
+    with open(detection_path) as f:
+        detection_results = json.load(f)
+    multi_fish_results = {}
+    if multi_fish_path.exists():
+        with open(multi_fish_path) as f:
+            multi_fish_results = json.load(f)
+
+    features_dir = Path(features_base_dir) / session
+    min_segment_size = 11
+
+    out: Dict[str, Dict] = {}
+    for video_path, det in detection_results.items():
+        video_stem = Path(video_path).stem
+        segments = det.get("segments_summary", {}).get("segments", [])
+
+        multi = multi_fish_results.get(video_path, {})
+        multi_runs = _find_multi_fish_segments(
+            multi.get("multi_fish_frames", []), min_run=min_segment_size
+        )
+        multi_frames: set = set()
+        for run in multi_runs:
+            multi_frames |= run
+
+        seg_frames_by_num: Dict[int, set] = {}
+        for fr in det.get("fish_frames", []):
+            seg_num = fr.get("segment")
+            if seg_num is None:
+                continue
+            seg_frames_by_num.setdefault(seg_num, set()).add(fr["frame"])
+
+        out_segments = []
+        for seg in segments:
+            seg_num = seg["segment_number"]
+            size = seg.get("size", 0)
+            frames = seg_frames_by_num.get(seg_num, set())
+            overlaps_multi = bool(frames & multi_frames)
+
+            species = None
+            middle_frame = None
+            status = "classified"
+
+            if size < min_segment_size:
+                status = "too_short"
+            elif overlaps_multi:
+                status = "multi_fish"
+            else:
+                npz_path = features_dir / f"{video_stem}_seg{seg_num}_features.npz"
+                if not npz_path.exists():
+                    status = "not_extracted"
+                else:
+                    label = _read_npz_species(npz_path)
+                    middle_frame = _read_npz_middle_frame(npz_path)
+                    if label == "":
+                        status = "not_classified"
+                    else:
+                        species = label
+
+            out_segments.append({
+                "segment_number": seg_num,
+                "start_frame": seg.get("start_frame"),
+                "end_frame": seg.get("end_frame"),
+                "size": size,
+                "middle_frame": middle_frame,
+                "species": species,
+                "status": status,
+            })
+
+        out[video_path] = {"segments": out_segments}
+
+    output_path = Path(output_base_dir) / session / "results.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
+        json.dump(out, f, indent=2, ensure_ascii=False)
+    print(f"[{session}] Species results written: {output_path}")
+    return output_path
+
+
+def classify_session(
+    session: str,
     model,
     features_base_dir: str = "data/SigLIP_features",
+    detection_dir: str = "output/detection_output",
+    species_output_dir: str = "output/species_classification",
 ) -> None:
-    """Classify species for all NPZ files in a date folder.
+    """Classify species for all NPZ files in a session and emit results JSON.
 
     Args:
-        date_folder: Date folder name (e.g., '06_08_2025').
+        session: Session folder name (typically a date like '06_08_2025').
         model: Loaded sklearn model with a predict() method.
         features_base_dir: Base directory for feature NPZ files.
+        detection_dir: Base directory for detection output (for JSON export).
+        species_output_dir: Where the per-segment species results.json is written.
     """
-    features_dir = Path(features_base_dir) / date_folder
+    features_dir = Path(features_base_dir) / session
     if not features_dir.exists():
         print(f"Features directory not found: {features_dir}")
         return
 
     npz_files = sorted(features_dir.glob("*_features.npz"))
     if not npz_files:
-        print(f"[{date_folder}] No NPZ files found")
+        print(f"[{session}] No NPZ files found")
         return
 
     classified = 0
@@ -266,12 +377,9 @@ def classify_date_folder(
             skipped += 1
             continue
 
-        SPECIES_LABELS = ["Bleikja", "Lax", "Urriði"]
-
         avg_features = data["averaged_features"].reshape(1, -1)
         prediction = model.predict(avg_features)[0]
 
-        # Map numeric label to species name if needed
         if isinstance(prediction, (int, np.integer)):
             prediction = SPECIES_LABELS[prediction]
 
@@ -279,25 +387,36 @@ def classify_date_folder(
         np.savez(str(npz_path), **data)
         classified += 1
 
-    print(f"[{date_folder}] Classification done: {classified} classified, {skipped} skipped")
+    print(f"[{session}] Classification done: {classified} classified, {skipped} skipped")
+
+    write_species_results_json(
+        session,
+        detection_dir=detection_dir,
+        features_base_dir=features_base_dir,
+        output_base_dir=species_output_dir,
+    )
 
 
-def process_date_folder(
-    date_folder: str,
+# Backwards-compatible alias
+classify_date_folder = classify_session
+
+
+def process_session(
+    session: str,
     detection_dir: str = "output/detection_output",
     video_base_dir: str = "data",
     output_base_dir: str = "data/SigLIP_features",
 ) -> None:
-    """Process all videos in a date folder and extract features.
+    """Process all videos in a session and extract features.
 
     Args:
-        date_folder: Date folder name (e.g., '06_08_2025').
+        session: Session folder name (typically a date like '06_08_2025').
         detection_dir: Base directory for detection output.
         video_base_dir: Base directory for source videos.
         output_base_dir: Base directory for feature output.
     """
-    detection_path = Path(detection_dir) / date_folder / "fish_detection" / "results.json"
-    multi_fish_path = Path(detection_dir) / date_folder / "multi_fish" / "results.json"
+    detection_path = Path(detection_dir) / session / "fish_detection" / "results.json"
+    multi_fish_path = Path(detection_dir) / session / "multi_fish" / "results.json"
 
     if not detection_path.exists():
         print(f"Detection results not found: {detection_path}")
@@ -312,7 +431,7 @@ def process_date_folder(
         multi_fish_results = json.load(f)
 
     valid_videos = filter_videos(detection_results, multi_fish_results)
-    print(f"[{date_folder}] {len(valid_videos)} videos with valid segments "
+    print(f"[{session}] {len(valid_videos)} videos with valid segments "
           f"(out of {len(detection_results)} total)")
 
     if not valid_videos:
@@ -322,7 +441,7 @@ def process_date_folder(
     model, preprocess, device = load_siglip_model()
     print(f"Model loaded on {device}")
 
-    output_dir = Path(output_base_dir) / date_folder
+    output_dir = Path(output_base_dir) / session
     processed = 0
     skipped = 0
 
@@ -340,7 +459,7 @@ def process_date_folder(
             if best_frames is None:
                 continue
 
-            video_file = str(Path(video_base_dir) / date_folder / Path(video_path).name)
+            video_file = str(Path(video_base_dir) / session / Path(video_path).name)
             if not Path(video_file).exists():
                 video_file = video_path
             if not Path(video_file).exists():
@@ -356,18 +475,25 @@ def process_date_folder(
             save_features_npz(features, best_frames, str(output_path))
             processed += 1
 
-    print(f"[{date_folder}] Done: {processed} extracted, {skipped} cached")
+    print(f"[{session}] Done: {processed} extracted, {skipped} cached")
+
+
+# Backwards-compatible alias
+process_date_folder = process_session
 
 
 def main():
     parser = argparse.ArgumentParser(
         description="Extract SigLIP features from fish video segments"
     )
-    parser.add_argument("--date", type=str, help="Single date folder to process")
-    parser.add_argument("--all", action="store_true", help="Process all date folders")
+    parser.add_argument("--session", "--date", dest="session", type=str,
+                        help="Single session folder to process (typically a date)")
+    parser.add_argument("--all", action="store_true", help="Process all session folders")
     parser.add_argument("--detection-dir", default="output/detection_output")
     parser.add_argument("--video-dir", default="data")
     parser.add_argument("--output-dir", default="data/SigLIP_features")
+    parser.add_argument("--species-output-dir", default="output/species_classification",
+                        help="Where per-session species results.json is written")
     parser.add_argument("--classify", action="store_true",
                         help="Run species classification on extracted features")
     parser.add_argument("--model-path",
@@ -382,29 +508,31 @@ def main():
         print(f"Loading model from {args.model_path}...")
         model = joblib.load(args.model_path)
 
-        if args.date:
-            classify_date_folder(args.date, model, args.output_dir)
+        if args.session:
+            classify_session(args.session, model, args.output_dir,
+                             detection_dir=args.detection_dir,
+                             species_output_dir=args.species_output_dir)
         elif args.all:
             features_base = Path(args.output_dir)
-            date_folders = sorted([
-                d.name for d in features_base.iterdir() if d.is_dir()
-            ])
-            print(f"Found {len(date_folders)} date folders: {date_folders}")
-            for date_folder in date_folders:
-                classify_date_folder(date_folder, model, args.output_dir)
+            sessions = sorted([d.name for d in features_base.iterdir() if d.is_dir()])
+            print(f"Found {len(sessions)} sessions: {sessions}")
+            for session in sessions:
+                classify_session(session, model, args.output_dir,
+                                 detection_dir=args.detection_dir,
+                                 species_output_dir=args.species_output_dir)
         else:
-            print("Specify --date or --all with --classify")
-    elif args.date:
-        process_date_folder(args.date, args.detection_dir, args.video_dir, args.output_dir)
+            print("Specify --session or --all with --classify")
+    elif args.session:
+        process_session(args.session, args.detection_dir, args.video_dir, args.output_dir)
     elif args.all:
         detection_base = Path(args.detection_dir)
-        date_folders = sorted([
+        sessions = sorted([
             d.name for d in detection_base.iterdir()
             if d.is_dir() and (d / "fish_detection" / "results.json").exists()
         ])
-        print(f"Found {len(date_folders)} date folders: {date_folders}")
-        for date_folder in date_folders:
-            process_date_folder(date_folder, args.detection_dir, args.video_dir, args.output_dir)
+        print(f"Found {len(sessions)} sessions: {sessions}")
+        for session in sessions:
+            process_session(session, args.detection_dir, args.video_dir, args.output_dir)
     else:
         parser.print_help()
 

@@ -1,0 +1,19 @@
+[project]
+name = "fish-detection"
+version = "0.1.0"
+authors = [{name = "João da Silva Martins", email = "joao.da.silva.martins@hafogvatn.is"}]
+license = {text = "TBD"}
+description = "AI assisted fish detection and classification in under water videos, tuned for salmonids."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.10.9",
+    "numpy>=2.4.5",
+    "open-clip-torch>=3.3.0",
+    "opencv-python>=4.13.0.92",
+    "pillow>=12.2.0",
+    "torch>=2.12.0",
+    "torchvision>=0.27.0",
+    "tqdm>=4.67.3",
+    "transformers>=5.8.1",
+]
