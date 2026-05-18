@@ -4,7 +4,21 @@ An AI-powered tool for finding fish in underwater video. Point it at a folder of
 
 Built at the **Marine and Freshwater Research Institute of Iceland (Hafrannsóknastofnun)** for salmonid monitoring, but adaptable to other species and settings.
 
-**Author:** João da Silva Martins — `joao.da.silva.martins@hafogvatn.is`
+This repository is the **reference implementation** of the method published in *Ecological Informatics* (2025). Validation results, dataset details, and methodological caveats are reported in full in the paper — please consult it before drawing biological conclusions.
+
+> da Silva Martins, J. R., Bárðarson, H., Guðbrandsson, J., & Einarsson, H. (2025). *Temporal aggregation of vision-language features for high-accuracy fish classification in automated monitoring.* **Ecological Informatics**, 92, 103462. [https://doi.org/10.1016/j.ecoinf.2025.103462](https://doi.org/10.1016/j.ecoinf.2025.103462)
+
+**Author / maintainer:** João da Silva Martins — `joao.da.silva.martins@hafogvatn.is`
+
+### Background — what the paper found
+
+The paper shows that a vision-language model (**SigLIP**) combined with **prompt engineering** and **temporal feature aggregation** can detect and classify salmonids in Icelandic river footage without frame-level annotations or preprocessing — and outperforms a fine-tuned ResNet50 baseline. Headline results on the validation set:
+
+- **99.1%** accuracy on single-fish detection
+- **98.2%** accuracy on multiple-fish detection
+- **97.5%** accuracy on species classification (SVM over temporally-pooled SigLIP features) across **Atlantic Salmon (Lax)**, **Brown Trout (Urriði)**, and **Arctic Char (Bleikja)**
+
+The practical implication: zero-shot embedding models can replace hand-labelled per-frame training for this class of monitoring problem, dramatically reducing the labelling burden. This repository is the implementation behind those numbers.
 
 ---
 
@@ -17,7 +31,7 @@ You give it videos. It tells you:
 - A clickable **timeline viewer** that opens in your browser: click a marker → jump to that moment in the video.
 - Machine-readable **JSON output** if you want to do your own analysis afterwards (e.g. in R or Python).
 
-It does **not** classify species, count individuals, or track fish across frames. It answers "is there a fish visible here?" — that's the unit of analysis.
+It does **not** count individuals, or track fish across frames. It answers "is there a fish visible here?" and if an individual fish is detected it classifies the species.
 
 ![Interactive timeline viewer](docs/timeline_viewer_screen.png)
 
@@ -26,16 +40,14 @@ It does **not** classify species, count individuals, or track fish across frames
 This tool was built and tuned for **salmonid-like fish** (salmon, trout, char) filmed in:
 
 - Fish-pass / fish-counter installations
-- Contained tanks or raceways (aquaculture)
-- River monitoring stations with reasonably clear water
+- River monitoring stations with various conditions
 
-It will likely also work — possibly with reduced accuracy — on other fish in similar conditions. The detection prompts can be edited to target other species; see **Adapting to other species** below.
+The detection will likely also work — possibly with reduced accuracy — on other fish in similar conditions. The detection prompts can be edited to target other species; see **Adapting to other species** below.
 
 It is unlikely to work well on:
 
 - Heavily turbid water
 - Deep-sea or low-light footage with no visible fish silhouette
-- Schools of small pelagic fish (sardines, herring) at distance
 - Crab, eels, or invertebrates (it has no concept of these)
 
 ---
@@ -52,13 +64,16 @@ uv run uv run python fish_detection/fish-detection.py single --video-dir ./data/
 # 3. (Optional) Detect multi-fish moments — must run single detection first
 uv run uv run python fish_detection/fish-detection.py multi --video-dir ./data/my_videos
 
-# 4. Open the interactive timeline viewer in your browser
+# 4. Classify each detected fish to species (Bleikja / Lax / Urriði)
+uv run uv run python fish_detection/feature_extraction.py --session my_videos --classify
+
+# 5. Open the interactive timeline viewer in your browser
 uv run uv run python fish_timeline_viewer.py --session my_videos
 ```
 
-The `--session` name is just the folder name from step 2 (`my_videos` in the example). The viewer auto-merges both single- and multi-fish results if both have been computed.
+The `--session` name is just the folder name from step 2 (`my_videos` in the example). The viewer auto-merges single-fish, multi-fish, and species-classification results when available.
 
-> **First run takes ~5 minutes longer than subsequent runs** because the AI model (~2 GB) is downloaded automatically.
+> **First run takes longer than subsequent runs** because the model (~2 GB) is downloaded automatically.
 
 ### Try it on the included test videos
 
@@ -150,9 +165,31 @@ uv run python fish_detection/fish-detection.py multi --video-dir ./data/site_A
 
 # Custom output location
 uv run python fish_detection/fish-detection.py single --video-dir ./data/site_A --output-dir ./results
+
+# Lower the batch size if you hit out-of-memory errors on a smaller GPU
+uv run python fish_detection/fish-detection.py single --video-dir ./data/site_A --batch-size 32
 ```
 
 **Why "single first, then multi"?** Multi-fish detection is more expensive, so it only re-examines the frames that single-detection already flagged as containing fish. This makes a full multi-fish pass over a long video tractable.
+
+### Classifying species
+
+After single and multi-fish detection have both run, classify each valid segment:
+
+```bash
+# Extract features + classify in one go
+uv run python fish_detection/feature_extraction.py --session site_A --classify
+
+# Just extract features, no classification yet
+uv run python fish_detection/feature_extraction.py --session site_A
+
+# Process every session in output/detection_output/
+uv run python fish_detection/feature_extraction.py --all --classify
+
+# Use a different trained model
+uv run python fish_detection/feature_extraction.py --session site_A --classify \
+    --model-path path/to/your_model.joblib
+```
 
 ### Viewing results
 
@@ -163,48 +200,75 @@ uv run python fish_timeline_viewer.py --session site_A
 uv run python fish_timeline_viewer.py --session site_A --no-browser
 ```
 
-The viewer copies your videos into the session folder (so the browser can play them locally) and starts a small web server. Click a coloured marker on the timeline to jump to that moment.
+The viewer copies your videos into the session folder (so the browser can play them locally) and starts a small web server. Click a coloured marker on the timeline to jump to that moment; species labels appear in the segment band when classification has been run.
 
 ---
 
 ## How it works (short version)
 
-1. **Frame sampling.** Every 3rd frame of the video is examined (≈10 fps for 30 fps footage). This is a good speed/accuracy trade-off; nothing fish-relevant tends to appear and disappear in 1/10 of a second.
-2. **AI analysis.** Each sampled frame is scored by **OpenCLIP (ViT-SO400M-14-SigLIP)**, a vision-language model. The model compares the frame against fish-related text descriptions ("a salmon-like fish swimming...") versus empty-scene descriptions, and returns a probability.
-3. **Thresholding.** Frames above a tuned probability threshold (0.978 for single fish, 0.962 for multi) are flagged.
+The pipeline has three stages: **detect → extract features → classify**.
+
+### 1. Detection (`fish_detection/fish-detection.py`)
+
+1. **Frame sampling.** Every 3rd frame of the video is examined (≈10 fps for 30 fps footage). Nothing fish-relevant tends to appear and disappear in 1/10 of a second.
+2. **AI analysis.** Each sampled frame is scored by **OpenCLIP (ViT-SO400M-14-SigLIP)**, a vision-language model. It compares the frame against fish-related text descriptions versus empty-scene descriptions and returns a probability.
+3. **Thresholding.** Frames above a tuned probability threshold are flagged.
 4. **Segmenting.** Consecutive flagged frames are grouped into **segments** (a contiguous fish visit). Gaps shorter than 2 seconds are bridged; segments shorter than 1 second are discarded as likely false positives.
-5. **Output.** Results are written as JSON (machine-readable) and rendered as an interactive HTML timeline (human-readable).
+
+Two passes run independently: a **single-fish** pass over the whole video, and a **multi-fish** pass that only re-examines frames the single pass already flagged.
+
+### 2. Feature extraction (`fish_detection/feature_extraction.py`)
+
+For every valid single-fish segment:
+
+1. The script picks the **best 11-frame window** inside the segment (highest mean detection probability — i.e. the clearest, most fish-confident stretch).
+2. It excludes segments that overlap multi-fish runs, so the classifier only sees single-fish footage.
+3. Each of the 11 frames is encoded with the same SigLIP model into a feature vector. The 11 vectors are then averaged into a single **per-segment feature vector**, saved as a `.npz` file under `data/SigLIP_features/<session>/`.
+
+This temporal pooling is what makes species classification robust: the SVM doesn't see one ambiguous frame, it sees the average of the 11 best ones.
+
+### 3. Species classification (`--classify`)
+
+A pre-trained **SVM** (in `notebooks/model_optimization_20260420_101150_multiseed/SVM_best_model.joblib`) takes each per-segment feature vector and predicts one of three species:
+
+- **Bleikja** — Arctic char (*Salvelinus alpinus*)
+- **Lax** — Atlantic salmon (*Salmo salar*)
+- **Urriði** — Brown trout (*Salmo trutta*)
+
+Per-segment labels are written to `output/species_classification/<session>/results.json` and surfaced in the timeline viewer (the segment band is coloured/labelled by species).
+
+### Output
+
+All results are written as JSON (machine-readable) and rendered as an interactive HTML timeline (human-readable).
 
 ---
 
 ## Interpreting the results
 
-### What a "probability" means
-
-The probability score (e.g. `0.985`) is the model's confidence that the frame contains a fish, **relative to the alternative prompts it was given**. It is *not* a calibrated biological probability — treat it as a ranking, not a guarantee.
-
-- **> 0.99** — very likely a real detection.
-- **0.97–0.99** — usually correct, but worth a quick eyeball check, especially in turbid water.
-- **Below threshold** — not reported, but the raw scores are saved in `scores.pkl` if you want to re-threshold later.
-
 ### Recommended workflow for biologists
 
 1. Run single detection on a small **representative sample** (e.g. 10 minutes from each site).
 2. Open the timeline viewer and spot-check 20–30 detections. Note false positives (debris, shadows, reflections) and missed fish.
-3. If accuracy looks acceptable, run the full dataset overnight.
-4. Use the JSON output (`output/detection_output/<session>/fish_detection/results.json`) to compute the biological metrics you actually care about: visit counts, residence time, diel patterns, etc.
+3. If accuracy looks acceptable, run the full dataset, then the multi-fish pass, then `--classify`.
+4. Use the JSON output to compute the biological metrics you actually care about: visit counts, residence time, diel patterns, species composition.
 
 ### Output structure
 
 ```
-output/detection_output/<session_name>/
-├── fish_detection/              # Single-fish pass
-│   ├── results.json             # Flagged frames + segments (use this)
-│   ├── scores.pkl               # Raw per-frame probabilities (advanced use)
-│   └── videos/                  # Local copies (for the viewer)
-├── multi_fish/                  # Multi-fish pass (if run)
-│   └── ...
-└── timeline_viewer.html         # Interactive viewer
+output/
+├── detection_output/<session>/
+│   ├── fish_detection/              # Single-fish pass
+│   │   ├── results.json             # Flagged frames + segments
+│   │   ├── scores.pkl               # Raw per-frame probabilities (advanced use)
+│   │   └── videos/                  # Local copies (for the viewer)
+│   ├── multi_fish/                  # Multi-fish pass (if run)
+│   │   └── ...
+│   └── timeline_viewer.html         # Interactive viewer
+└── species_classification/<session>/
+    └── results.json                 # Per-segment species labels
+
+data/SigLIP_features/<session>/
+└── <video>_features.npz             # Per-segment averaged feature vectors
 ```
 
 ### JSON format
@@ -234,9 +298,9 @@ To convert frame numbers to timestamps: `time_in_seconds = frame_number / fps`. 
 
 ## Adapting to other species
 
-The detection works by comparing each frame to a small set of **text prompts** that describe what you're looking for. These are defined in `fish_detection/fish-detection.py` (look for `positive_prompts` and `negative_prompts`).
+Two layers need attention if you want to target species beyond Bleikja / Lax / Urriði:
 
-To target a different species or scene, edit those prompts. For example, for eels in a fish pass you might change the positives to:
+**Detection prompts.** `fish_detection/fish-detection.py` compares each frame to a small set of **text prompts** (look for `positive_prompts` and `negative_prompts`). Editing these lets you bias detection toward another shape or scene — for example, for eels:
 
 ```python
 positive_prompts = tokenizer([
@@ -246,7 +310,13 @@ positive_prompts = tokenizer([
 ], ...)
 ```
 
-You will likely also need to **re-tune the threshold** (`self.threshold`) on a labelled sample of your own footage. The defaults were calibrated for salmonids and won't transfer directly.
+You will likely also need to **re-tune the threshold** (`self.threshold`) on a labelled sample of your own footage.
+
+**Species classifier.** The bundled SVM only knows about Arctic char, Atlantic salmon, and Brown trout. To classify other species you need to **retrain the SVM** on your own labelled segments. The training pipeline lives in `notebooks/temporal_pooling_train_and_validation.ipynb`; the workflow is:
+
+1. Run detection + feature extraction on labelled footage so each segment becomes an `.npz` file with a non-empty `fish_species` field.
+2. Re-run the notebook to fit a new SVM and save it as `*.joblib`.
+3. Point classification at the new model with `--model-path`.
 
 ---
 
@@ -267,7 +337,7 @@ You will likely also need to **re-tune the threshold** (`self.threshold`) on a l
 
 **Timeline viewer won't open** — port 8000 may be in use. Close other local servers or restart the terminal. On corporate networks, a firewall may block the local HTTP server.
 
-**Out-of-memory error on GPU** — your GPU is too small for the default batch size (128). Lower the `batch_size` constant in `fish_detection/fish-detection.py`.
+**Out-of-memory error on GPU** — your GPU is too small for the default batch size (128). Lower it via `--batch-size 32` (or 16, 8) on the detection command.
 
 **Multi-fish detection finds nothing** — confirm single detection was run first and produced results in `output/detection_output/<session>/fish_detection/results.json`. Multi-fish only re-examines frames already flagged by single detection.
 
@@ -278,16 +348,32 @@ You will likely also need to **re-tune the threshold** (`self.threshold`) on a l
 - This is a research tool, not a certified counting instrument. Always validate against ground truth before drawing biological conclusions.
 - The model has **no concept of individual identity** — the same fish swimming back and forth will be counted as multiple detections.
 - "Multi-fish" is a coarse signal: it tells you a frame likely contains more than one fish, not how many.
-- Performance on **species other than salmonids has not been systematically evaluated**.
+- The species classifier only recognises **Bleikja, Lax, Urriði**. Anything else will be forced into one of those three labels — there is no "unknown" class.
+- Species classification is only run on **single-fish segments**; multi-fish stretches are intentionally excluded because the per-segment feature average is unreliable when multiple individuals are present.
+- Performance on species and conditions outside the training distribution has not been systematically evaluated.
 - The model is sensitive to lighting and water clarity; results from different sites are not directly comparable without site-specific validation.
 
 ---
 
 ## Citation
 
-If you use this tool in published research, please cite:
+If you use this tool in published research, please cite the method paper:
 
-> da Silva Martins, J. (2026). *Fish Detection System: AI-assisted detection of salmonids in underwater video.* Marine and Freshwater Research Institute of Iceland (Hafrannsóknastofnun).
+> da Silva Martins, J. R., Bárðarson, H., Guðbrandsson, J., & Einarsson, H. (2025). Temporal aggregation of vision-language features for high-accuracy fish classification in automated monitoring. *Ecological Informatics*, 92, 103462. https://doi.org/10.1016/j.ecoinf.2025.103462
+
+BibTeX:
+
+```bibtex
+@article{daSilvaMartins2025FishClassification,
+  title   = {Temporal aggregation of vision-language features for high-accuracy fish classification in automated monitoring},
+  author  = {da Silva Martins, Jo{\~a}o Rodrigo and B{\'a}r{\dh}arson, Hlynur and Gu{\dh}brandsson, J{\'o}hannes and Einarsson, Hafsteinn},
+  journal = {Ecological Informatics},
+  volume  = {92},
+  pages   = {103462},
+  year    = {2025},
+  doi     = {10.1016/j.ecoinf.2025.103462}
+}
+```
 
 ## License
 
