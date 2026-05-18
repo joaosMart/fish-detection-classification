@@ -377,7 +377,7 @@ BibTeX:
 
 ## License
 
-TBD — contact the author before redistributing or using in production monitoring.
+Released under the **MIT License** — see [LICENSE](LICENSE). You may use, modify, and redistribute this code freely, including commercially, provided you keep the copyright notice. The MIT license disclaims warranty: for production monitoring, validate the tool against your own ground truth before relying on it.
 
 ## Support
 
