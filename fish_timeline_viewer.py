@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from datetime import datetime
 
+import numpy as np
 import cv2
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
@@ -101,6 +102,20 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
         segments_summary = single_data.get("segments_summary", {})
         if segments_summary.get("segments"):
             for seg in segments_summary["segments"]:
+                # Look up species from NPZ features file
+                video_stem = video_path.stem
+                seg_num = seg["segment_number"]
+                npz_path = Path("data/SigLIP_features") / session_dir.name / f"{video_stem}_seg{seg_num}_features.npz"
+                species = "No Species Predicted"
+                if npz_path.exists():
+                    try:
+                        npz_data = np.load(str(npz_path), allow_pickle=True)
+                        sp = str(npz_data["fish_species"])
+                        if sp:
+                            species = sp
+                    except Exception:
+                        pass
+
                 segments.append({
                     "segment_number": seg["segment_number"],
                     "start_time": round(seg["start_frame"] / fps, 2),
@@ -108,6 +123,7 @@ def generate_viewer_data(session_dir: Path) -> Optional[Dict]:
                     "start_frame": seg["start_frame"],
                     "end_frame": seg["end_frame"],
                     "size": seg["size"],
+                    "species": species,
                 })
 
         videos[video_name] = {
