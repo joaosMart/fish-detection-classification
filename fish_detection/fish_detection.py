@@ -58,10 +58,11 @@ from tqdm import tqdm
 
 
 class FishDetector:
-    def __init__(self, detection_type: Literal["single", "multi"], output_dir: str = "./output/detection_output", 
-                 video_dir: Optional[str] = None):
+    def __init__(self, detection_type: Literal["single", "multi"], output_dir: str = "./output/detection_output",
+                 video_dir: Optional[str] = None, batch_size: int = 128):
         self.base_output_dir = Path(output_dir)
         self.detection_type = detection_type
+        self.batch_size = batch_size
         
         # Create session-specific output directory based on video directory name
         if video_dir:
@@ -257,10 +258,10 @@ class FishDetector:
         print(f"Processing {Path(video_path).name} - analyzing {len(fish_frame_indices)} fish frames out of {frame_count} total frames")
         
         results = []
-        batch_size = 128
+        batch_size = self.batch_size
         batch = []
         batch_frame_indices = []
-        
+
         # Sort frame indices for efficient video seeking
         sorted_fish_frames = sorted(fish_frame_indices)
         
@@ -312,7 +313,7 @@ class FishDetector:
             return []
         
         results = []
-        batch_size = 128  # Smaller batch size for stability
+        batch_size = self.batch_size
         batch = []
         batch_frame_indices = []  # Track which frames we're processing
         
@@ -639,6 +640,9 @@ Examples:
     
     parser.add_argument('--output-dir', default='./output/detection_output',
                        help='Output directory for results (default: ./output/detection_output)')
+
+    parser.add_argument('--batch-size', type=int, default=128,
+                       help='Frames per GPU/CPU batch. Lower if you hit out-of-memory errors (default: 128)')
     
     # Video input options - make them mutually exclusive
     video_group = parser.add_mutually_exclusive_group(required=True)
@@ -678,7 +682,7 @@ def main():
         sys.exit(1)
     
     # Create detector and run
-    detector = FishDetector(args.mode, args.output_dir, video_dir)
+    detector = FishDetector(args.mode, args.output_dir, video_dir, batch_size=args.batch_size)
     detector.run(video_files)
     
     print(f"\n🎉 {args.mode.upper()} fish detection complete!")
