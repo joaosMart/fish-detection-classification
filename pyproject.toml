@@ -2,7 +2,7 @@
 name = "fish-detection"
 version = "0.1.0"
 authors = [{name = "João da Silva Martins", email = "joao.da.silva.martins@hafogvatn.is"}]
-license = {text = "TBD"}
+license = {text = "MIT"}
 description = "AI assisted fish detection and classification in under water videos, tuned for salmonids."
 readme = "README.md"
 requires-python = ">=3.11"
