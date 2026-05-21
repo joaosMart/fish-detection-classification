@@ -64,7 +64,10 @@ uv run python fish_detection/fish_detection.py single --video-dir ./data/my_vide
 # 3. (Optional) Detect multi-fish moments — must run single detection first
 uv run python fish_detection/fish_detection.py multi --video-dir ./data/my_videos
 
-# 4. Classify each detected fish to species (Bleikja / Lax / Urriði)
+# 4a. Extract per-segment features
+uv run python fish_detection/feature_extraction.py --session my_videos
+
+# 4b. Classify each detected fish to species (Bleikja / Lax / Urriði)
 uv run python fish_detection/feature_extraction.py --session my_videos --classify
 
 # 5. Open the interactive timeline viewer in your browser
@@ -80,7 +83,19 @@ The `--session` name is just the folder name from step 2 (`my_videos` in the exa
 A small set of test videos is bundled at `data/video_temp_test/` so you can confirm your installation works before pointing the tool at your own footage:
 
 ```bash
+# 1. Single-fish detection
 uv run python fish_detection/fish_detection.py single --video-dir ./data/video_temp_test
+
+# 2. Multi-fish detection
+uv run python fish_detection/fish_detection.py multi --video-dir ./data/video_temp_test
+
+# 3. Extract features
+uv run python fish_detection/feature_extraction.py --session video_temp_test
+
+# 4. Classify species (must be a separate run, after step 3)
+uv run python fish_detection/feature_extraction.py --session video_temp_test --classify
+
+# 5. Open the timeline viewer
 uv run python fish_timeline_viewer.py --session video_temp_test
 ```
 
@@ -173,14 +188,14 @@ uv run python fish_detection/fish_detection.py single --video-dir ./data/site_A 
 
 ### Classifying species
 
-After single and multi-fish detection have both run, classify each valid segment:
+After single and multi-fish detection have both run, classify each valid segment. Feature extraction and classification are two separate steps — run the command **first without `--classify`** to extract features, then **again with `--classify`** to assign species labels:
 
 ```bash
-# Extract features + classify in one go
-uv run python fish_detection/feature_extraction.py --session site_A --classify
-
-# Just extract features, no classification yet
+# Step 1: extract features
 uv run python fish_detection/feature_extraction.py --session site_A
+
+# Step 2: classify (requires features to have been extracted first)
+uv run python fish_detection/feature_extraction.py --session site_A --classify
 
 # Process every session in output/detection_output/
 uv run python fish_detection/feature_extraction.py --all --classify
