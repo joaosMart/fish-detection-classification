@@ -20,33 +20,6 @@ import argparse
 from pathlib import Path
 from typing import List, Dict, Any, Tuple, Optional, Literal
 
-# Check and install requirements
-def install_requirements():
-    """Install required packages if not available"""
-    required_packages = [
-        'torch', 'torchvision', 'transformers', 
-        'open_clip_torch', 'opencv-python', 
-        'pillow', 'numpy', 'matplotlib', 'tqdm',
-        'typing'
-    ]
-    
-    missing_packages = []
-    for package in required_packages:
-        try:
-            __import__(package.replace('-', '_'))
-        except ImportError:
-            missing_packages.append(package)
-    
-    if missing_packages:
-        print("Installing missing packages...")
-        import subprocess
-        for package in missing_packages:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-        print("Installation complete!")
-
-# Install requirements first
-install_requirements()
-
 # Now import the packages
 import torch
 import torch.nn.functional as F
