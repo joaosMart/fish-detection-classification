@@ -59,16 +59,16 @@ It is unlikely to work well on:
 uv sync
 
 # 2. Detect single fish across all videos in a folder
-uv run uv run python fish_detection/fish-detection.py single --video-dir ./data/my_videos
+uv run python fish_detection/fish-detection.py single --video-dir ./data/my_videos
 
 # 3. (Optional) Detect multi-fish moments — must run single detection first
-uv run uv run python fish_detection/fish-detection.py multi --video-dir ./data/my_videos
+uv run python fish_detection/fish-detection.py multi --video-dir ./data/my_videos
 
 # 4. Classify each detected fish to species (Bleikja / Lax / Urriði)
-uv run uv run python fish_detection/feature_extraction.py --session my_videos --classify
+uv run python fish_detection/feature_extraction.py --session my_videos --classify
 
 # 5. Open the interactive timeline viewer in your browser
-uv run uv run python fish_timeline_viewer.py --session my_videos
+uv run python fish_timeline_viewer.py --session my_videos
 ```
 
 The `--session` name is just the folder name from step 2 (`my_videos` in the example). The viewer auto-merges single-fish, multi-fish, and species-classification results when available.
@@ -80,8 +80,8 @@ The `--session` name is just the folder name from step 2 (`my_videos` in the exa
 A small set of test videos is bundled at `data/video_temp_test/` so you can confirm your installation works before pointing the tool at your own footage:
 
 ```bash
-uv run uv run python fish_detection/fish-detection.py single --video-dir ./data/video_temp_test
-uv run uv run python fish_timeline_viewer.py --session video_temp_test
+uv run python fish_detection/fish-detection.py single --video-dir ./data/video_temp_test
+uv run python fish_timeline_viewer.py --session video_temp_test
 ```
 
 Your browser should open with the timeline viewer and several fish detections visible.
