@@ -41,7 +41,7 @@ output/
 training_data/
 
 # --- Notebook noise ---
-notebooks/model_optimization*/**/*.joblib
+notebooks/model_optimization*/seed_*/**/*.joblib
 notebooks/model_optimization*/**/*.zip
 notebooks/model_optimization*/*.zip
 notebooks/model_optimization*/**/*.log
