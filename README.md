@@ -59,10 +59,10 @@ It is unlikely to work well on:
 uv sync
 
 # 2. Detect single fish across all videos in a folder
-uv run python fish_detection/fish-detection.py single --video-dir ./data/my_videos
+uv run python fish_detection/fish_detection.py single --video-dir ./data/my_videos
 
 # 3. (Optional) Detect multi-fish moments — must run single detection first
-uv run python fish_detection/fish-detection.py multi --video-dir ./data/my_videos
+uv run python fish_detection/fish_detection.py multi --video-dir ./data/my_videos
 
 # 4. Classify each detected fish to species (Bleikja / Lax / Urriði)
 uv run python fish_detection/feature_extraction.py --session my_videos --classify
@@ -80,7 +80,7 @@ The `--session` name is just the folder name from step 2 (`my_videos` in the exa
 A small set of test videos is bundled at `data/video_temp_test/` so you can confirm your installation works before pointing the tool at your own footage:
 
 ```bash
-uv run python fish_detection/fish-detection.py single --video-dir ./data/video_temp_test
+uv run python fish_detection/fish_detection.py single --video-dir ./data/video_temp_test
 uv run python fish_timeline_viewer.py --session video_temp_test
 ```
 
@@ -121,7 +121,6 @@ If you have `git` installed:
 
 ```bash
 git clone <repository-url>
-cd fish-detection
 ```
 
 Otherwise, open a terminal and `cd` into the folder where you unzipped it.
@@ -155,19 +154,19 @@ You're now ready to run the **Quick Start** commands above. If you'd like to try
 
 ```bash
 # All videos in a folder
-uv run python fish_detection/fish-detection.py single --video-dir ./data/site_A
+uv run python fish_detection/fish_detection.py single --video-dir ./data/site_A
 
 # Specific videos
-uv run python fish_detection/fish-detection.py single --videos clip1.mp4 clip2.mp4
+uv run python fish_detection/fish_detection.py single --videos clip1.mp4 clip2.mp4
 
 # Multi-fish pass (requires single detection to have run already)
-uv run python fish_detection/fish-detection.py multi --video-dir ./data/site_A
+uv run python fish_detection/fish_detection.py multi --video-dir ./data/site_A
 
 # Custom output location
-uv run python fish_detection/fish-detection.py single --video-dir ./data/site_A --output-dir ./results
+uv run python fish_detection/fish_detection.py single --video-dir ./data/site_A --output-dir ./results
 
 # Lower the batch size if you hit out-of-memory errors on a smaller GPU
-uv run python fish_detection/fish-detection.py single --video-dir ./data/site_A --batch-size 32
+uv run python fish_detection/fish_detection.py single --video-dir ./data/site_A --batch-size 32
 ```
 
 **Why "single first, then multi"?** Multi-fish detection is more expensive, so it only re-examines the frames that single-detection already flagged as containing fish. This makes a full multi-fish pass over a long video tractable.
@@ -208,7 +207,7 @@ The viewer copies your videos into the session folder (so the browser can play t
 
 The pipeline has three stages: **detect → extract features → classify**.
 
-### 1. Detection (`fish_detection/fish-detection.py`)
+### 1. Detection (`fish_detection/fish_detection.py`)
 
 1. **Frame sampling.** Every 3rd frame of the video is examined (≈10 fps for 30 fps footage). Nothing fish-relevant tends to appear and disappear in 1/10 of a second.
 2. **AI analysis.** Each sampled frame is scored by **OpenCLIP (ViT-SO400M-14-SigLIP)**, a vision-language model. It compares the frame against fish-related text descriptions versus empty-scene descriptions and returns a probability.
@@ -300,7 +299,7 @@ To convert frame numbers to timestamps: `time_in_seconds = frame_number / fps`. 
 
 Two layers need attention if you want to target species beyond Bleikja / Lax / Urriði:
 
-**Detection prompts.** `fish_detection/fish-detection.py` compares each frame to a small set of **text prompts** (look for `positive_prompts` and `negative_prompts`). Editing these lets you bias detection toward another shape or scene — for example, for eels:
+**Detection prompts.** `fish_detection/fish_detection.py` compares each frame to a small set of **text prompts** (look for `positive_prompts` and `negative_prompts`). Editing these lets you bias detection toward another shape or scene — for example, for eels:
 
 ```python
 positive_prompts = tokenizer([
